@@ -29,18 +29,6 @@ $(window).scroll(function () {
                 let slide = Math.round(scrollFollow / fullScroll * 300);
                 $(".site-body .main-section .profile .img-box img").removeClass("active")
                 $(".site-body .main-section .profile .img-box  img:nth-child(" + slide + ")").addClass("active")
-                // مراقبة التمرير وتشغيل الصوت إذا وافق المستخدم
-
-
-                if (slide >= 70 && userAllowed) {
-                    sound.play().catch(function (error) {
-                        console.log('Failed to play sound:', error);
-                    });
-                } else {
-                    {
-                        sound.pause()
-                    }
-                }
             } else {
                 clearInterval(go_down)
             }
@@ -53,18 +41,6 @@ $(window).scroll(function () {
                 let slide = Math.round(scrollFollow / fullScroll * 300) + 1;
                 $(".site-body .main-section .profile .img-box img").removeClass("active")
                 $(".site-body .main-section .profile .img-box  img:nth-child(" + slide + ")").addClass("active")
-                // مراقبة التمرير وتشغيل الصوت إذا وافق المستخدم
-
-
-                if (slide >= 70 && userAllowed) {
-                    sound.play().catch(function (error) {
-                        console.log('Failed to play sound:', error);
-                    });
-                } else {
-                    {
-                        sound.pause()
-                    }
-                }
             } else {
                 clearInterval(go_up)
             }
