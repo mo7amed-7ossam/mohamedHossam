@@ -739,6 +739,10 @@
     border-radius: 40px;
 }
 
+.partitions-con .partition-5 {
+    width: calc((100% - 30px) / 2);
+}
+
 .partition-5 .g-skill{
     display: flex;
     align-items: flex-start;
