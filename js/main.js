@@ -5,6 +5,7 @@ document.onreadystatechange = function () {
     } else {
         $(".loading").fadeOut();
         document.querySelector("body").style.overflow = "visible";
+        
     }
 };
 
@@ -66,5 +67,26 @@ $(".resume .slider .large-screen .slide1-btn").click(function(){
 $(".resume .slider .large-screen .slide2-btn").click(function(){
     $(".resume .slider .slides").css({transform:"translateX(calc(-100% / 3 ))"})
     $(".resume .slider .large-screen button").removeClass("active")
+    $(this).addClass("active")
+})
+
+$(".testimonials .slider .large-screen .slide1-btn").click(function(){
+    $(".testimonials .slider .slides").css({transform:"translateX(0px)"})
+    $(".testimonials .slider .large-screen button").removeClass("active")
+    $(this).addClass("active")
+})
+$(".testimonials .slider .large-screen .slide2-btn").click(function(){
+    $(".testimonials .slider .slides").css({transform:"translateX(calc(-100% / 5 ) )"})
+    $(".testimonials .slider .large-screen button").removeClass("active")
+    $(this).addClass("active")
+})
+$(".testimonials .slider .large-screen .slide3-btn").click(function(){
+    $(".testimonials .slider .slides").css({transform:"translateX(calc(-100% / 5 * 2) )"})
+    $(".testimonials .slider .large-screen button").removeClass("active")
+    $(this).addClass("active")
+})
+$(".testimonials .slider .large-screen .slide4-btn").click(function(){
+    $(".testimonials .slider .slides").css({transform:"translateX(calc(-100% / 5 * 3) )"})
+    $(".testimonials .slider .large-screen button").removeClass("active")
     $(this).addClass("active")
 })

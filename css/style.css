@@ -1267,7 +1267,6 @@
             #171717, #141414);
     border: solid 1px #ffffff1f;
     border-radius: 15px;
-    min-height: 200px;
     position: relative;
     padding: 20px;
     display: flex;
@@ -1294,9 +1293,9 @@
     border: solid 1px #ffffff1f;
     border-radius: 4px;
     width: fit-content;
-    font-size: 13px;
+    font-size: 12px;
     padding: 5px 10px;
-    opacity: .6;
+    opacity: .5;
 }
 
 .courses .container .card .content .place {
@@ -1308,7 +1307,7 @@
 .courses .container .card .content .where {
     opacity: .6;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
 }
 
@@ -1343,4 +1342,105 @@
 
 .testimonials {
     padding: 80px 50px;
+}
+
+
+.testimonials .slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.testimonials .slider .slides {
+    width: 250%;
+    display: flex;
+    transition: .8s;
+    gap: 30px;
+}
+
+.testimonials .slider .slides .box {
+    width: calc((100% - 120px) / 5);
+    background-image: linear-gradient(120deg, #1f1f1f, #1c1c1c, #1a1a1a, #171717,
+            #171717, #141414);
+    border: solid 1px #ffffff1f;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.testimonials .slider .slides .box .rate i {
+    color: #78cc6d;
+    font-size: 14px;
+}
+
+.testimonials .slider .slides .box .opinion {
+    font-size: 15px;
+    margin: 20px 0px;
+}
+
+
+.testimonials .slider .slides .box .account {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.testimonials .slider .slides .box .account img {
+    width: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.testimonials .slider .slides .box .account .name {
+    margin-bottom: 3px;
+    text-transform: capitalize;
+    color: #78cc6d;
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+.testimonials .slider .slides .box .account .job {
+    opacity: .6;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.testimonials .slider .btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.testimonials .slider .large-screen {
+    display: flex;
+}
+
+.testimonials .slider .small-screen {
+    display: none;
+}
+
+.testimonials .slider .btns button {
+    width: 9px;
+    aspect-ratio: 1/1;
+    display: block;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.testimonials .slider .btns button.active {
+    background-color: #78cc6d;
+}
+
+.testimonials .more {
+    margin: auto;
+    margin-top: 30px;
+    width: fit-content;
+    border: solid 1px #ffffff1f;
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 50px;
+}
+
+.testimonials .more span{
+    color: #78cc6d;
 }
