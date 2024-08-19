@@ -1124,3 +1124,223 @@
     margin: auto;
     transform: rotate(45deg);
 }
+
+.resume {
+    padding: 80px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.resume .slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.resume .slider .slides {
+    width: 150%;
+    display: flex;
+    transition: .8s;
+}
+
+.resume .slider .slides .box {
+    width: calc(100% / 3);
+    text-align: center;
+}
+
+.resume .slider .slides .box .period {
+    color: #78cc6d;
+    position: relative;
+    border-bottom: solid 1px #ffffff1f;
+    padding: 30px;
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.resume .slider .slides .box .period .dot {
+    width: 10px;
+    aspect-ratio: 1/1;
+    background-color: #78cc6d;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+}
+
+.resume .slider .slides .box .box-body {
+    padding: 30px 20px;
+}
+
+.resume .slider .slides .box .box-body .job-title {
+    font-weight: 600;
+}
+
+.resume .slider .slides .box .box-body .location {
+    text-transform: capitalize;
+    opacity: .7;
+    font-size: 14px;
+    margin: 14px 0px;
+}
+
+.resume .slider .slides .box .box-body .job-description p {
+    font-size: 14px;
+    line-height: 20px;
+    opacity: .9;
+}
+
+.resume .slider .btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.resume .slider .large-screen {
+    display: flex;
+}
+
+.resume .slider .small-screen {
+    display: none;
+}
+
+.resume .slider .btns button {
+    width: 9px;
+    aspect-ratio: 1/1;
+    display: block;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.resume .slider .btns button.active {
+    background-color: #78cc6d;
+}
+
+.courses .container {
+    margin-top: 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.courses .container::after,
+.courses .container .left {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 2px;
+    background-image: radial-gradient(ellipse at top, rgba(197, 202, 213, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.courses .container .left {
+    left: 0%;
+    transform: translateX(0%);
+}
+
+.courses .container::before {
+    content: " ";
+    width: 110%;
+    height: 1px;
+    position: absolute;
+    top: 0%;
+    left: -20px;
+    background-image: radial-gradient(ellipse at left, rgba(197, 202, 213, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.courses .container .card {
+    width: calc(100% / 2);
+    padding: 20px;
+}
+
+
+
+.courses .container .card .content {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, #1f1f1f, #1c1c1c, #1a1a1a, #171717,
+            #171717, #141414);
+    border: solid 1px #ffffff1f;
+    border-radius: 15px;
+    min-height: 200px;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.courses .container .card .content::after {
+    content: " ";
+    position: absolute;
+    left: -20px;
+    top: 15%;
+    transform: translateX(-50%);
+    width: 10px;
+    aspect-ratio: 1/1;
+    background-color: #555;
+    border-radius: 50%;
+}
+
+.courses .container .card:nth-child(3) .content::after {
+    transform: translateX(-60%);
+}
+
+.courses .container .card .content .year {
+    border: solid 1px #ffffff1f;
+    border-radius: 4px;
+    width: fit-content;
+    font-size: 13px;
+    padding: 5px 10px;
+    opacity: .6;
+}
+
+.courses .container .card .content .place {
+    text-transform: capitalize;
+    margin: 10px 0px;
+    font-size: 15px;
+}
+
+.courses .container .card .content .where {
+    opacity: .6;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.courses .container .card .content .description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.courses .container .card .content .btn-con {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.courses .container .card .content a {
+    color: #78cc6d;
+    display: block;
+    margin-top: 20px;
+}
+
+.courses .container .card .content a:hover {
+    color: #fff;
+}
+
+.courses .container .card .content a i {
+    font-size: 12px;
+}
+
+
+.testimonials {
+    padding: 80px 50px;
+}

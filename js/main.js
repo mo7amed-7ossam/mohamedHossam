@@ -56,3 +56,15 @@ $(window).scroll(function () {
 setInterval(function(){
     $(".hello div").toggleClass("flip")
 },3500)
+
+
+$(".resume .slider .large-screen .slide1-btn").click(function(){
+    $(".resume .slider .slides").css({transform:"translateX(0px)"})
+    $(".resume .slider .large-screen button").removeClass("active")
+    $(this).addClass("active")
+})
+$(".resume .slider .large-screen .slide2-btn").click(function(){
+    $(".resume .slider .slides").css({transform:"translateX(calc(-100% / 3 ))"})
+    $(".resume .slider .large-screen button").removeClass("active")
+    $(this).addClass("active")
+})
