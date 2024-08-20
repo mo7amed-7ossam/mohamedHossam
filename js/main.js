@@ -154,7 +154,7 @@ function sendMail() {
             })
             .catch((err) => console.log(err));
     } else {
-        $(".please span ").css("opacity","1")
+        $(".please span ").css("opacity", "1")
         setTimeout(function () {
             $(".please span ").css("opacity", "0")
         }, 3000)
@@ -170,8 +170,15 @@ $(".contact form button").click(function () {
     }, 3000)
 })
 
-
-$(".side-nav .mode-btn").click(function(){
-    $("body").removeClass("dark").addClass("light")
-    $(".bg-video video").attr("src","imgs/r-video-02.mp4")
+let mode = 0;
+$(".side-nav .mode-btn").click(function () {
+    if (mode == 0) {
+        mode = 1
+        $("body").removeClass("dark").addClass("light")
+        $(".bg-video video").attr("src", "imgs/r-video-02.mp4")
+    } else {
+        mode = 0
+        $("body").addClass("dark").removeClass("light")
+        $(".bg-video video").attr("src", "imgs/r-video-01-1.mp4")
+    }
 })
