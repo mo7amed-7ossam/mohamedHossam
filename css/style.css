@@ -1631,10 +1631,11 @@
 
     .hero .header .mini-information {
         gap: 30px;
+        justify-content: center;
     }
 
     .hero .header .mini-information .card {
-        width: calc((100% - 30px) / 2);
+        width: fit-content;padding: 0% 20px;
     }
 
     .hero .technical-skills .partition-1 .skills-container .card {
@@ -1718,5 +1719,13 @@
 
     .site-body {
         margin: 30px 15px;
+    }
+
+    .hero .header .mini-information .card .num {
+        font-size: 50px;
+    }
+
+    .hero .header .mini-information .card .info-title {
+        gap: 3px;
     }
 }
