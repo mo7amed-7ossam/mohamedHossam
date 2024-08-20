@@ -695,7 +695,8 @@
     border-radius: 30px;
     overflow: hidden;
 }
-.light .hero .technical-skills .partition-1 .skills-container .card .box .bar .per{
+
+.light .hero .technical-skills .partition-1 .skills-container .card .box .bar .per {
     background-color: #78cc6d;
 }
 
@@ -947,7 +948,7 @@
     opacity: .8;
 }
 
-.light .services .container .card .box .serv-name{
+.light .services .container .card .box .serv-name {
     color: #000;
 }
 
@@ -1767,7 +1768,7 @@
         flex-direction: column;
     }
 
-    .dark .site-body .main-section .profile {
+    .site-body .main-section .profile {
         position: static;
         height: auto;
         width: 100%;
@@ -1934,18 +1935,36 @@
         top: 30px;
     }
 
+    .light .site-body .side-nav .menu-btn {
+        background-color: #f0f0f0;
+        border-top-right-radius: 0%;
+    }
+
     .site-body .side-nav .menu-btn {
         background-color: #222;
         border-top-right-radius: 0%;
+    }
+
+    .light .site-body .side-nav .mode-btn {
+        background-color: #f0f0f0;
     }
 
     .site-body .side-nav .mode-btn {
         background-color: #222;
     }
 
+    .light .side-nav .links-father {
+        background-color: #f0f0f0 !important;
+    }
+
     .side-nav .links-father {
         background-color: #222 !important;
         display: none;
+    }
+
+    .light .side-nav .links-father li {
+        background-color: #fff;
+        box-shadow: 0px 0px 4px #0000002f;
     }
 
     .side-nav .links-father li {
