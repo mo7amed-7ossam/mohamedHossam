@@ -57,7 +57,7 @@ if (screenWidth > 600) {
     })
 
 } else {
-    $(".site-body .main-section .profile .img-box").append("<div class='float-me'>< img src = 'imgs / me.jpg'></div > ")
+    $(".site-body .main-section .profile .img-box").append("<div class='float-me'><img src='imgs/me.jpg'></div > ")
 }
 
 
