@@ -1687,6 +1687,11 @@
 
     .testimonials .slider .slides {
         width: 500%;
+        gap: 0px;
+    }
+
+    .testimonials .slider .slides .box {
+        width: calc(100% / 5);
     }
 
     .testimonials .slider .btns button.slide5-btn {
@@ -1732,5 +1737,10 @@
 
     .hero .header .mini-information .card .info-title {
         gap: 3px;
+    }
+
+    .hero .technical-skills .skill-v2-container .card .v2-name {
+        text-align: center;
+        font-size: 13px;
     }
 }
