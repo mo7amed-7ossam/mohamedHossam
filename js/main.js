@@ -176,9 +176,13 @@ $(".side-nav .mode-btn").click(function () {
         mode = 1
         $("body").removeClass("dark").addClass("light")
         $(".bg-video video").attr("src", "imgs/r-video-02.mp4")
+        $(".side-nav .mode-btn i").show()
+        $(".side-nav .mode-btn svg").hide()
     } else {
         mode = 0
         $("body").addClass("dark").removeClass("light")
         $(".bg-video video").attr("src", "imgs/r-video-01-1.mp4")
+        $(".side-nav .mode-btn i").hide()
+        $(".side-nav .mode-btn svg").show()
     }
 })
