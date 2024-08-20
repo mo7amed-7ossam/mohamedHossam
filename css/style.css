@@ -1632,10 +1632,12 @@
     .hero .header .mini-information {
         gap: 30px;
         justify-content: center;
+        flex-direction: column-reverse;
     }
 
     .hero .header .mini-information .card {
-        width: fit-content;padding: 0% 20px;
+        width: fit-content;
+        padding: 0% 20px;
     }
 
     .hero .technical-skills .partition-1 .skills-container .card {
