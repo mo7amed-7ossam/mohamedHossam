@@ -15,7 +15,7 @@ if (screenWidth > 600) {
     // img
 
     for (i = 2; i <= 300; i++) {
-        $(".site-body .main-section .profile .img-box ").append("<img src='imgs/avatar/mohamedHossam (" + i + ").webp' >")
+        $(".site-body .main-section .profile .img-box").append("<img src='imgs/avatar/mohamedHossam (" + i + ").webp' >")
     }
 
     // scroll img
@@ -57,7 +57,7 @@ if (screenWidth > 600) {
     })
 
 } else {
-    $().append("<div class='float-me'>< img src = 'imgs / me.jpg'></div > ")
+    $(".site-body .main-section .profile .img-box").append("<div class='float-me'>< img src = 'imgs / me.jpg'></div > ")
 }
 
 
