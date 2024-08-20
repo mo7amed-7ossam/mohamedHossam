@@ -1364,6 +1364,9 @@
     border: solid 1px #ffffff1f;
     border-radius: 15px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .testimonials .slider .slides .box .rate i {
@@ -1441,6 +1444,100 @@
     border-radius: 50px;
 }
 
-.testimonials .more span{
+.testimonials .more span {
     color: #78cc6d;
+}
+
+.testimonials .acc-cont {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.contact {
+    padding: 80px 50px;
+}
+
+.contact .containr {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact .containr .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc((100% - 30px) / 2);
+    flex-grow: 1;
+    padding: 25px 20px;
+    background-image: linear-gradient(120deg, #1f1f1f, #1c1c1c, #1a1a1a, #171717,
+            #171717, #141414);
+    border-radius: 10px;
+    border: solid 1px #ffffff1f;
+}
+
+.contact .containr .card .title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact .containr .card .title i {
+    color: #78cc6d;
+    font-size: 45px;
+
+}
+
+.contact .containr .card .title span {
+    font-size: 20px;
+    opacity: .7;
+    text-transform: capitalize;
+}
+
+.contact .containr .card .data {
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.contact iframe {
+    width: 100%;
+    margin-top: 70px;
+    filter: brightness(100%) contrast(100%) saturate(0%) blur(0px) hue-rotate(0deg);
+    margin-bottom: 60px;
+}
+
+.contact form {
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact form input {
+    width: calc((100% - 30px) / 2);
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 1px #ffffff1f;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.contact form textarea {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 1px #ffffff1f;
+    height: 120px;
+    font-size: 16px;
+    font-weight: bold;
+    resize: none;
+}
+
+
+.contact form button:hover{
+    color: #fff;
+    cursor: pointer;
+    
 }
