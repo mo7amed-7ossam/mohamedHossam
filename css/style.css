@@ -1695,6 +1695,9 @@
 
     .contact .containr .card {
         width: 100%;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
     }
 
     .contact .containr .card:nth-child(2) span {
