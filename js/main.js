@@ -18,19 +18,20 @@ if (screenWidth > 600) {
         $(".site-body .main-section .profile .img-box ").append("<img src='imgs/avatar/mohamedHossam (" + i + ").webp' >")
     }
 
-
     // scroll img
 
     scrollFollow = 0
 
     let fullScroll = $("html").height() - $(window).height();
     $(window).scroll(function () {
+
         scrollNow = $(this).scrollTop();
         if (scrollNow > scrollFollow && scrollNow < fullScroll) {
             go_down = setInterval(function () {
                 if (scrollFollow < scrollNow) {
                     scrollFollow++;
-                    let slide = Math.round(scrollFollow / fullScroll * 300);
+                    let slide = Math.ceil(scrollFollow / fullScroll * 299);
+                    console.log(slide)
                     $(".site-body .main-section .profile .img-box img").removeClass("active")
                     $(".site-body .main-section .profile .img-box  img:nth-child(" + slide + ")").addClass("active")
                 } else {
@@ -42,7 +43,7 @@ if (screenWidth > 600) {
             go_up = setInterval(function () {
                 if (scrollFollow > scrollNow) {
                     scrollFollow--;
-                    let slide = Math.round(scrollFollow / fullScroll * 300) + 1;
+                    let slide = Math.round(scrollFollow / fullScroll * 299) + 1;
                     $(".site-body .main-section .profile .img-box img").removeClass("active")
                     $(".site-body .main-section .profile .img-box  img:nth-child(" + slide + ")").addClass("active")
                 } else {
@@ -55,6 +56,8 @@ if (screenWidth > 600) {
 
     })
 
+} else {
+    $().append("<div class='float-me'>< img src = 'imgs / me.jpg'></div > ")
 }
 
 
@@ -121,7 +124,6 @@ $(".testimonials .slider .large-screen .slide5-btn").click(function () {
 
 $(".menu-btn").click(function () {
     $(".mode-btn").slideToggle(200);
-    setTimeout(function () {
-        $(".site-body .side-nav .links").css("transform", "scaleY(1)")
-    }, 200)
+    $(".side-nav .links-father").slideToggle(200);
+    
 })
