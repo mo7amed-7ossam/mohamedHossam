@@ -1765,10 +1765,10 @@
         display: none;
     }
 
-        .side-nav .links-father li{
-            background-color: #0c0c0c;
-            box-shadow: 0px 0px 4px #0000006b;
-        }
+    .side-nav .links-father li {
+        background-color: #0c0c0c;
+        box-shadow: 0px 0px 4px #0000006b;
+    }
 
     .site-body .side-nav .mode-btn {
         display: none;
@@ -1776,6 +1776,13 @@
 
     .site-body .main-section {
         width: 100%;
+    }
+
+    .hero>section {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
     }
 }
 
