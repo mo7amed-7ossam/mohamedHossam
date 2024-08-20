@@ -11,7 +11,7 @@ document.onreadystatechange = function () {
 
 let screenWidth = $(window).width();
 console.log(screenWidth)
-if (screenWidth > 600) {
+if (screenWidth > 1200) {
     // img
 
     for (i = 2; i <= 300; i++) {
@@ -125,5 +125,47 @@ $(".testimonials .slider .large-screen .slide5-btn").click(function () {
 $(".menu-btn").click(function () {
     $(".mode-btn").slideToggle(200);
     $(".side-nav .links-father").slideToggle(200);
-    
+
+})
+
+// #
+
+
+function sendMail() {
+    nameV = document.getElementById("name").value;
+    emailV = document.getElementById("mail").value;
+    messageV = document.getElementById("message").value;
+    if (nameV && emailV && messageV) {
+        var params = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("mail").value,
+            message: document.getElementById("message").value,
+        };
+        const serviceID = "service_4g5pc1m";
+        const templateID = "template_pk5b7uz";
+        emailjs
+            .send(serviceID, templateID, params)
+            .then((res) => {
+                document.getElementById("name").value = "";
+                document.getElementById("mail").value = ""
+                document.getElementById("message").value = ""
+                console.log(res);
+                $(".contact form button").html("Thank you for contacting me <span style='color:#78cc6d'><i class='fa-regular fa-circle-check'></i></span>")
+            })
+            .catch((err) => console.log(err));
+    } else {
+        $(".please span ").css("opacity","1")
+        setTimeout(function () {
+            $(".please span ").css("opacity", "0")
+        }, 3000)
+    }
+
+}
+
+$(".contact form button").click(function () {
+    $(this).attr("disabled", "disabled");
+    setTimeout(function () {
+        $(".contact form button").removeAttr("disabled")
+        $(".contact form button").html("send message <i class='fa-solid fa-arrow-right'></i>")
+    }, 3000)
 })
