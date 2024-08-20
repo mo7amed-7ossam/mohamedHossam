@@ -1705,4 +1705,9 @@
     .contact form input {
         width: 100%;
     }
+
+    .hero>section {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
 }
