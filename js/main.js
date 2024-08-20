@@ -169,3 +169,9 @@ $(".contact form button").click(function () {
         $(".contact form button").html("send message <i class='fa-solid fa-arrow-right'></i>")
     }, 3000)
 })
+
+
+$(".side-nav .mode-btn").click(function(){
+    $("body").removeClass("dark").addClass("light")
+    $(".bg-video video").attr("src","imgs/r-video-02.mp4")
+})
