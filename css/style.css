@@ -1739,13 +1739,6 @@
         display: block !important;
     }
 
-    .bg-video {
-        display: none;
-    }
-
-    body {
-        background-color: #888;
-    }
 }
 
 @media (min-width:0px) and (max-width:600px) {
