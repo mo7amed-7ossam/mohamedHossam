@@ -1609,6 +1609,10 @@
         padding: 0%;
     }
 
+    .site-body .side-nav {
+        top: 30px;
+    }
+
     .site-body .side-nav .menu-btn {
         background-color: #222;
         border-top-right-radius: 0%;
@@ -1746,6 +1750,14 @@
 
     .float-me {
         display: block !important;
+    }
+
+    .bg-video {
+        display: none;
+    }
+
+    body {
+        background-color: #888;
     }
 }
 
