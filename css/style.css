@@ -452,6 +452,7 @@
 
 .hero .header .mini-information {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 40px;
 }
@@ -677,6 +678,7 @@
 
 .partitions-con {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
     align-items: flex-start;
 }
@@ -1430,6 +1432,10 @@
     cursor: pointer;
 }
 
+.testimonials .slider .btns button.slide5-btn {
+    display: none;
+}
+
 .testimonials .slider .btns button.active {
     background-color: #78cc6d;
 }
@@ -1537,19 +1543,166 @@
 }
 
 
-.contact form button:hover{
+.contact form button:hover {
     color: #fff;
     cursor: pointer;
-    
+
 }
 
-.contact form button:hover i{
+.contact form button:hover i {
     margin-left: 10px;
 }
 
-.contact form button i{
+.contact form button i {
     margin-top: 5px;
     margin-left: 5px;
     font-size: 10px;
     transition: .5s;
+}
+
+/* responsive */
+
+@media (min-width:0px) and (max-width:600px) {
+    .site-body .main-section {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .dark .site-body .main-section .profile {
+        position: static;
+        height: auto;
+        width: 100%;
+    }
+
+    .site-body .main-section .profile .profile-btns {
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .site-body .main-section .hero {
+        width: 100%;
+    }
+
+    .hero .header {
+        height: auto;
+    }
+
+    .hero .header .hello {
+        font-size: 18px;
+    }
+
+    .hero .header .description {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    .hero .header .description span {
+        font-size: 18px;
+        background-color: #78cc6d;
+        padding: 0px 12px;
+        line-height: 44px;
+    }
+
+    .site-body .side-nav {
+        position: fixed;
+        padding: 0%;
+    }
+
+    .site-body .side-nav .menu-btn {
+        background-color: #222;
+        border-top-right-radius: 0%;
+    }
+
+    .site-body .side-nav .mode-btn {
+        background-color: #222;
+    }
+
+    .site-body .side-nav .links {
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: 1s;
+        background-color: #222;
+    }
+
+    .site-body .side-nav .mode-btn {
+        display: none;
+    }
+
+    .hero .header .mini-information {
+        gap: 30px;
+    }
+
+    .hero .header .mini-information .card {
+        width: calc((100% - 30px) / 2);
+    }
+
+    .hero .technical-skills .partition-1 .skills-container .card {
+        width: 100%;
+    }
+
+    .hero .technical-skills .skill-v2-container .card {
+        width: calc((100% - 30px) / 2);
+    }
+
+    .partitions-con .partition-4,
+    .partitions-con .partition-5 {
+        width: 100%;
+    }
+
+    .services .container .card {
+        width: 100%;
+    }
+
+    .pricing .container .card {
+        width: 100%;
+    }
+
+    .projects .container .section {
+        width: 100%;
+    }
+
+    .resume .slider .slides {
+        width: 300%;
+    }
+
+    .resume .slider .large-screen {
+        display: none;
+    }
+
+    .resume .slider .small-screen {
+        display: flex;
+    }
+
+    .courses .container .card {
+        width: 100%;
+    }
+
+    .courses .container::after {
+        display: none;
+    }
+
+    .testimonials .slider .slides {
+        width: 500%;
+    }
+
+    .testimonials .slider .btns button.slide5-btn {
+        display: block;
+    }
+
+    .contact .containr .card {
+        width: 100%;
+    }
+
+    .contact .containr .card:nth-child(2) span {
+        display: inline !important;
+    }
+
+    .contact .containr .card .data {
+        font-size: 14px;
+    }
+
+    .contact form input {
+        width: 100%;
+    }
 }
