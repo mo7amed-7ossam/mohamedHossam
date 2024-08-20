@@ -1533,6 +1533,7 @@
     font-size: 16px;
     font-weight: bold;
     resize: none;
+    text-transform: capitalize;
 }
 
 
@@ -1540,4 +1541,15 @@
     color: #fff;
     cursor: pointer;
     
+}
+
+.contact form button:hover i{
+    margin-left: 10px;
+}
+
+.contact form button i{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 10px;
+    transition: .5s;
 }
