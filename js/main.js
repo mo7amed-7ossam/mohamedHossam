@@ -187,7 +187,6 @@ $(".side-nav .mode-btn").click(function () {
     }
 })
 
-
 window.onload = function () {
     // تخزين معلومات المتصفح
     const userAgent = navigator.userAgent;
@@ -215,8 +214,8 @@ window.onload = function () {
 
     if (navigator.connection) {
         connectionType = navigator.connection.effectiveType;
-        downlink = navigator.connection.downlink + "Mbps";
-        rtt = navigator.connection.rtt + "ms";
+        downlink = navigator.connection.downlink + " Mbps";
+        rtt = navigator.connection.rtt + " ms";
     }
 
     // تخزين عدد الصفحات في الجلسة الحالية
@@ -224,87 +223,64 @@ window.onload = function () {
 
     // تخزين معلومات أداء الصفحة
     const performanceTiming = window.performance.timing;
-    const pageLoadTime = (performanceTiming.loadEventEnd - performanceTiming.navigationStart) + "ms";
-
-    // الحصول على الموقع الجغرافي (إن وجد)
-    let latitude = "N/A";
-    let longitude = "N/A";
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-
-            // إرسال البيانات بعد الحصول على الموقع الجغرافي
-            sendEmail(ipAddress, latitude, longitude);
-        });
-    } else {
-        // إرسال البيانات مباشرة إذا لم يكن الموقع الجغرافي مدعومًا
-        sendEmail("N/A", latitude, longitude);
-    }
+    const pageLoadTime = (performanceTiming.loadEventEnd - performanceTiming.navigationStart) + " ms";
 
     // الحصول على عنوان IP (باستخدام خدمة خارجية)
-    function sendEmail(ipAddress, latitude, longitude) {
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                ipAddress = data.ip || ipAddress;
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const ipAddress = data.ip;
 
-                // تخزين جميع البيانات في كائن واحد
-                const userInfo = {
-                    userAgent,
-                    browserName,
-                    browserVersion,
-                    platform,
-                    language,
-                    ipAddress,
-                    accessTime,
-                    screenWidth,
-                    screenHeight,
-                    colorDepth,
-                    timeZone,
-                    isRTL,
-                    connectionType,
-                    downlink,
-                    rtt,
-                    historyLength,
-                    pageLoadTime,
-                    latitude,
-                    longitude
-                };
+            // تخزين جميع البيانات في كائن واحد
+            const userInfo = {
+                userAgent,
+                browserName,
+                browserVersion,
+                platform,
+                language,
+                ipAddress,
+                accessTime,
+                screenWidth,
+                screenHeight,
+                colorDepth,
+                timeZone,
+                isRTL,
+                connectionType,
+                downlink,
+                rtt,
+                historyLength,
+                pageLoadTime
+            };
 
-                // تحضير البيانات للإرسال باستخدام emailjs
-                const params = {
-                    UserAgent: userInfo.userAgent,
-                    BrowserName: userInfo.browserName,
-                    BrowserVersion: userInfo.browserVersion,
-                    Platform: userInfo.platform,
-                    Language: userInfo.language,
-                    IPAddress: userInfo.ipAddress,
-                    AccessTime: userInfo.accessTime,
-                    ScreenWidth: userInfo.screenWidth,
-                    ScreenHeight: userInfo.screenHeight,
-                    ColorDepth: userInfo.colorDepth,
-                    TimeZone: userInfo.timeZone,
-                    IsRTL: userInfo.isRTL,
-                    ConnectionType: userInfo.connectionType,
-                    Downlink: userInfo.downlink,
-                    RTT: userInfo.rtt,
-                    HistoryLength: userInfo.historyLength,
-                    PageLoadTime: userInfo.pageLoadTime,
-                    Latitude: userInfo.latitude,
-                    Longitude: userInfo.longitude
-                };
+            // تحضير البيانات للإرسال باستخدام emailjs
+            const params = {
+                UserAgent: userInfo.userAgent,
+                BrowserName: userInfo.browserName,
+                BrowserVersion: userInfo.browserVersion,
+                Platform: userInfo.platform,
+                Language: userInfo.language,
+                IPAddress: userInfo.ipAddress,
+                AccessTime: userInfo.accessTime,
+                ScreenWidth: userInfo.screenWidth,
+                ScreenHeight: userInfo.screenHeight,
+                ColorDepth: userInfo.colorDepth,
+                TimeZone: userInfo.timeZone,
+                IsRTL: userInfo.isRTL,
+                ConnectionType: userInfo.connectionType,
+                Downlink: userInfo.downlink,
+                RTT: userInfo.rtt,
+                HistoryLength: userInfo.historyLength,
+                PageLoadTime: userInfo.pageLoadTime
+            };
 
-                const serviceID = "service_yf2vi5x";
-                const templateID = "template_n0aalwa";
-                emailjs
-                    .send(serviceID, templateID, params)
-                    .then((res) => {
-                        console.log('Email successfully sent!', res.status, res.text);
-                    })
-                    .catch((err) => console.error('Failed to send email:', err));
-            })
-            .catch(error => console.error('Error fetching IP:', error));
-    }
+            const serviceID = "service_yf2vi5x";
+            const templateID = "template_n0aalwa";
+            emailjs
+                .send(serviceID, templateID, params)
+                .then((res) => {
+                    console.log('Email successfully sent!', res.status, res.text);
+                })
+                .catch((err) => console.error('Failed to send email:', err));
+        })
+        .catch(error => console.error('Error fetching IP:', error));
 };
