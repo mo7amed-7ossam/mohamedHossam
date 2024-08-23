@@ -186,3 +186,55 @@ $(".side-nav .mode-btn").click(function () {
         $(".side-nav .mode-btn svg").show()
     }
 })
+
+
+window.onload = function () {
+    // تخزين معلومات المتصفح
+    const userAgent = navigator.userAgent;
+    const browserName = navigator.appName;
+    const browserVersion = navigator.appVersion;
+    const platform = navigator.platform;
+    const language = navigator.language;
+
+    // تخزين تاريخ ووقت الدخول
+    const accessTime = new Date().toLocaleString();
+
+    // الحصول على عنوان IP (باستخدام خدمة خارجية)
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const ipAddress = data.ip;
+
+            // تخزين جميع البيانات في كائن واحد
+            const userInfo = {
+                userAgent,
+                browserName,
+                browserVersion,
+                platform,
+                language,
+                ipAddress,
+                accessTime
+            };
+
+            // تحضير البيانات للإرسال باستخدام emailjs
+            var params = {
+                UserAgent: userInfo.userAgent,
+                BrowserName: userInfo.browserName,
+                BrowserVersion: userInfo.browserVersion,
+                Platform: userInfo.platform,
+                Language: userInfo.language,
+                IPAddress: userInfo.ipAddress,
+                AccessTime: userInfo.accessTime
+            };
+
+            const serviceID = "service_yf2vi5x";
+            const templateID = "template_n0aalwa";
+            emailjs
+                .send(serviceID, templateID, params)
+                .then((res) => {
+                    console.log('Email successfully sent!', res.status, res.text);
+                })
+                .catch((err) => console.error('Failed to send email:', err));
+        })
+        .catch(error => console.error('Error fetching IP:', error));
+};
