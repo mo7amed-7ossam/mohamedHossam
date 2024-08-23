@@ -132,35 +132,77 @@ $(".menu-btn").click(function () {
 
 
 function sendMail() {
-    nameV = document.getElementById("name").value;
-    emailV = document.getElementById("mail").value;
-    messageV = document.getElementById("message").value;
+    // جمع البيانات من النموذج
+    const nameV = document.getElementById("name").value;
+    const emailV = document.getElementById("mail").value;
+    const messageV = document.getElementById("message").value;
+
+    // جمع المعلومات الإضافية
+    const userAgent = navigator.userAgent;
+    const browserName = navigator.appName;
+    const browserVersion = navigator.appVersion;
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const accessTime = new Date().toLocaleString();
+    const screenWidth = screen.width;
+    const screenHeight = screen.height;
+    const colorDepth = screen.colorDepth;
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const isRTL = document.dir === "rtl";
+    let connectionType = "N/A";
+    let downlink = "N/A";
+    let rtt = "N/A";
+
+    if (navigator.connection) {
+        connectionType = navigator.connection.effectiveType;
+        downlink = navigator.connection.downlink + "Mbps";
+        rtt = navigator.connection.rtt + "ms";
+    }
+
+    // التحقق من صحة البيانات
     if (nameV && emailV && messageV) {
         var params = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("mail").value,
-            message: document.getElementById("message").value,
+            name: nameV,
+            email: emailV,
+            message: messageV,
+            userAgent: userAgent,
+            browserName: browserName,
+            browserVersion: browserVersion,
+            platform: platform,
+            language: language,
+            accessTime: accessTime,
+            screenWidth: screenWidth,
+            screenHeight: screenHeight,
+            colorDepth: colorDepth,
+            timeZone: timeZone,
+            isRTL: isRTL,
+            connectionType: connectionType,
+            downlink: downlink,
+            rtt: rtt
         };
+
         const serviceID = "service_4g5pc1m";
         const templateID = "template_pk5b7uz";
-        emailjs
-            .send(serviceID, templateID, params)
+
+        emailjs.send(serviceID, templateID, params)
             .then((res) => {
                 document.getElementById("name").value = "";
-                document.getElementById("mail").value = ""
-                document.getElementById("message").value = ""
+                document.getElementById("mail").value = "";
+                document.getElementById("message").value = "";
+
                 console.log(res);
-                $(".contact form button").html("Thank you for contacting me <span style='color:#78cc6d'><i class='fa-regular fa-circle-check'></i></span>")
+                document.querySelector(".contact form button").innerHTML = "Thank you for contacting me <span style='color:#78cc6d'><i class='fa-regular fa-circle-check'></i></span>";
             })
             .catch((err) => console.log(err));
     } else {
-        $(".please span ").css("opacity", "1")
+        const pleaseSpan = document.querySelector(".please span");
+        pleaseSpan.style.opacity = "1";
         setTimeout(function () {
-            $(".please span ").css("opacity", "0")
-        }, 3000)
+            pleaseSpan.style.opacity = "0";
+        }, 3000);
     }
-
 }
+
 
 $(".contact form button").click(function () {
     $(this).attr("disabled", "disabled");
