@@ -229,6 +229,7 @@ $(".side-nav .mode-btn").click(function () {
     }
 })
 
+
 window.onload = function () {
     // تخزين معلومات المتصفح
     const userAgent = navigator.userAgent;
@@ -267,62 +268,86 @@ window.onload = function () {
     const performanceTiming = window.performance.timing;
     const pageLoadTime = (performanceTiming.loadEventEnd - performanceTiming.navigationStart) + " ms";
 
-    // الحصول على عنوان IP (باستخدام خدمة خارجية)
+    // الحصول على عنوان IP
     fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
         .then(data => {
             const ipAddress = data.ip;
 
-            // تخزين جميع البيانات في كائن واحد
-            const userInfo = {
-                userAgent,
-                browserName,
-                browserVersion,
-                platform,
-                language,
-                ipAddress,
-                accessTime,
-                screenWidth,
-                screenHeight,
-                colorDepth,
-                timeZone,
-                isRTL,
-                connectionType,
-                downlink,
-                rtt,
-                historyLength,
-                pageLoadTime
-            };
+            // تحليل الموقع الجغرافي باستخدام ip-api
+            return fetch(`http://ip-api.com/json/${ipAddress}`)
+                .then(response => response.json())
+                .then(locationData => {
+                    const location = {
+                        country: locationData.country,
+                        region: locationData.regionName,
+                        city: locationData.city,
+                        latitude: locationData.lat,
+                        longitude: locationData.lon
+                    };
 
-            // تحضير البيانات للإرسال باستخدام emailjs
-            const params = {
-                UserAgent: userInfo.userAgent,
-                BrowserName: userInfo.browserName,
-                BrowserVersion: userInfo.browserVersion,
-                Platform: userInfo.platform,
-                Language: userInfo.language,
-                IPAddress: userInfo.ipAddress,
-                AccessTime: userInfo.accessTime,
-                ScreenWidth: userInfo.screenWidth,
-                ScreenHeight: userInfo.screenHeight,
-                ColorDepth: userInfo.colorDepth,
-                TimeZone: userInfo.timeZone,
-                IsRTL: userInfo.isRTL,
-                ConnectionType: userInfo.connectionType,
-                Downlink: userInfo.downlink,
-                RTT: userInfo.rtt,
-                HistoryLength: userInfo.historyLength,
-                PageLoadTime: userInfo.pageLoadTime
-            };
+                    // تخزين جميع البيانات في كائن واحد
+                    const userInfo = {
+                        userAgent,
+                        browserName,
+                        browserVersion,
+                        platform,
+                        language,
+                        ipAddress, // استخدام المتغير هنا بشكل صحيح
+                        accessTime,
+                        screenWidth,
+                        screenHeight,
+                        colorDepth,
+                        timeZone,
+                        isRTL,
+                        connectionType,
+                        downlink,
+                        rtt,
+                        historyLength,
+                        pageLoadTime,
+                        location
+                    };
 
-            const serviceID = "service_yf2vi5x";
-            const templateID = "template_n0aalwa";
-            emailjs
-                .send(serviceID, templateID, params)
-                .then((res) => {
-                    console.log('Email successfully sent!', res.status, res.text);
-                })
-                .catch((err) => console.error('Failed to send email:', err));
+                    // تحضير البيانات للإرسال باستخدام emailjs
+                    const params = {
+                        UserAgent: userInfo.userAgent,
+                        BrowserName: userInfo.browserName,
+                        BrowserVersion: userInfo.browserVersion,
+                        Platform: userInfo.platform,
+                        Language: userInfo.language,
+                        IPAddress: userInfo.ipAddress,
+                        AccessTime: userInfo.accessTime,
+                        ScreenWidth: userInfo.screenWidth,
+                        ScreenHeight: userInfo.screenHeight,
+                        ColorDepth: userInfo.colorDepth,
+                        TimeZone: userInfo.timeZone,
+                        IsRTL: userInfo.isRTL,
+                        ConnectionType: userInfo.connectionType,
+                        Downlink: userInfo.downlink,
+                        RTT: userInfo.rtt,
+                        HistoryLength: userInfo.historyLength,
+                        PageLoadTime: userInfo.pageLoadTime,
+                        LocationCountry: userInfo.location.country,
+                        LocationRegion: userInfo.location.region,
+                        LocationCity: userInfo.location.city,
+                        LocationLatitude: userInfo.location.latitude,
+                        LocationLongitude: userInfo.location.longitude
+                    };
+
+                    const serviceID = "service_yf2vi5x";
+                    const templateID = "template_n0aalwa";
+
+                    // التأكد من تحميل مكتبة emailjs
+                    if (typeof emailjs !== "undefined") {
+                        emailjs.send(serviceID, templateID, params)
+                            .then((res) => {
+                                console.log('Email successfully sent!', res.status, res.text);
+                            })
+                            .catch((err) => console.error('Failed to send email:', err));
+                    } else {
+                        console.error('EmailJS library not loaded.');
+                    }
+                });
         })
-        .catch(error => console.error('Error fetching IP:', error));
+        .catch(error => console.error('Error fetching IP or location:', error));
 };
