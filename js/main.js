@@ -221,124 +221,100 @@ $(document).ready(function () {
     });
 
     window.onload = function () {
-        // Collect browser information
-        const userAgent = navigator.userAgent;
-        const browserName = navigator.appName;
-        const browserVersion = navigator.appVersion;
-        const platform = navigator.platform;
-        const language = navigator.language;
+    // تخزين معلومات المتصفح
+    const userAgent = navigator.userAgent;
+    const browserName = navigator.appName;
+    const browserVersion = navigator.appVersion;
+    const platform = navigator.platform;
+    const language = navigator.language;
 
-        // Collect access time
-        const accessTime = new Date().toLocaleString();
+    // تخزين تاريخ ووقت الدخول
+    const accessTime = new Date().toLocaleString();
 
-        // Collect screen information
-        const screenWidth = screen.width;
-        const screenHeight = screen.height;
-        const colorDepth = screen.colorDepth;
+    // تخزين معلومات الشاشة
+    const screenWidth = screen.width;
+    const screenHeight = screen.height;
+    const colorDepth = screen.colorDepth;
 
-        // Collect regional preferences
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const isRTL = document.dir === "rtl";
+    // تخزين التفضيلات الإقليمية
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const isRTL = document.dir === "rtl";
 
-        // Collect network information
-        let connectionType = "N/A";
-        let downlink = "N/A";
-        let rtt = "N/A";
+    // تخزين معلومات الشبكة
+    let connectionType = "N/A";
+    let downlink = "N/A";
+    let rtt = "N/A";
 
-        if (navigator.connection) {
-            connectionType = navigator.connection.effectiveType;
-            downlink = navigator.connection.downlink + " Mbps";
-            rtt = navigator.connection.rtt + " ms";
-        }
+    if (navigator.connection) {
+        connectionType = navigator.connection.effectiveType;
+        downlink = navigator.connection.downlink + " Mbps";
+        rtt = navigator.connection.rtt + " ms";
+    }
 
-        // Collect session history length
-        const historyLength = window.history.length;
+    // تخزين عدد الصفحات في الجلسة الحالية
+    const historyLength = window.history.length;
 
-        // Collect page performance information
-        const performanceTiming = window.performance.timing;
-        const pageLoadTime = (performanceTiming.loadEventEnd - performanceTiming.navigationStart) + " ms";
+    // تخزين معلومات أداء الصفحة
+    const performanceTiming = window.performance.timing;
+    const pageLoadTime = (performanceTiming.loadEventEnd - performanceTiming.navigationStart) + " ms";
 
-        // Fetch IP address
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                const ipAddress = data.ip;
+    // الحصول على عنوان IP (باستخدام خدمة خارجية)
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const ipAddress = data.ip;
 
-                // Fetch geographic location using IP
-                return fetch(`http://ip-api.com/json/${ipAddress}`)
-                    .then(response => response.json())
-                    .then(locationData => {
-                        const location = {
-                            country: locationData.country,
-                            region: locationData.regionName,
-                            city: locationData.city,
-                            latitude: locationData.lat,
-                            longitude: locationData.lon
-                        };
+            // تخزين جميع البيانات في كائن واحد
+            const userInfo = {
+                userAgent,
+                browserName,
+                browserVersion,
+                platform,
+                language,
+                ipAddress,
+                accessTime,
+                screenWidth,
+                screenHeight,
+                colorDepth,
+                timeZone,
+                isRTL,
+                connectionType,
+                downlink,
+                rtt,
+                historyLength,
+                pageLoadTime
+            };
 
-                        // Prepare user info object
-                        const userInfo = {
-                            userAgent,
-                            browserName,
-                            browserVersion,
-                            platform,
-                            language,
-                            ipAddress,
-                            accessTime,
-                            screenWidth,
-                            screenHeight,
-                            colorDepth,
-                            timeZone,
-                            isRTL,
-                            connectionType,
-                            downlink,
-                            rtt,
-                            historyLength,
-                            pageLoadTime,
-                            location
-                        };
+            // تحضير البيانات للإرسال باستخدام emailjs
+            const params = {
+                UserAgent: userInfo.userAgent,
+                BrowserName: userInfo.browserName,
+                BrowserVersion: userInfo.browserVersion,
+                Platform: userInfo.platform,
+                Language: userInfo.language,
+                IPAddress: userInfo.ipAddress,
+                AccessTime: userInfo.accessTime,
+                ScreenWidth: userInfo.screenWidth,
+                ScreenHeight: userInfo.screenHeight,
+                ColorDepth: userInfo.colorDepth,
+                TimeZone: userInfo.timeZone,
+                IsRTL: userInfo.isRTL,
+                ConnectionType: userInfo.connectionType,
+                Downlink: userInfo.downlink,
+                RTT: userInfo.rtt,
+                HistoryLength: userInfo.historyLength,
+                PageLoadTime: userInfo.pageLoadTime
+            };
 
-                        // Prepare parameters for emailjs
-                        const params = {
-                            UserAgent: userInfo.userAgent,
-                            BrowserName: userInfo.browserName,
-                            BrowserVersion: userInfo.browserVersion,
-                            Platform: userInfo.platform,
-                            Language: userInfo.language,
-                            IPAddress: userInfo.ipAddress,
-                            AccessTime: userInfo.accessTime,
-                            ScreenWidth: userInfo.screenWidth,
-                            ScreenHeight: userInfo.screenHeight,
-                            ColorDepth: userInfo.colorDepth,
-                            TimeZone: userInfo.timeZone,
-                            IsRTL: userInfo.isRTL,
-                            ConnectionType: userInfo.connectionType,
-                            Downlink: userInfo.downlink,
-                            RTT: userInfo.rtt,
-                            HistoryLength: userInfo.historyLength,
-                            PageLoadTime: userInfo.pageLoadTime,
-                            LocationCountry: userInfo.location.country,
-                            LocationRegion: userInfo.location.region,
-                            LocationCity: userInfo.location.city,
-                            LocationLatitude: userInfo.location.latitude,
-                            LocationLongitude: userInfo.location.longitude
-                        };
-
-                        const serviceID = "service_yf2vi5x";
-                        const templateID = "template_n0aalwa";
-
-                        // Ensure emailjs library is loaded
-                        if (typeof emailjs !== "undefined") {
-                            emailjs.send(serviceID, templateID, params)
-                                .then((res) => {
-                                    console.log('Email successfully sent!', res.status, res.text);
-                                })
-                                .catch((err) => console.error('Failed to send email:', err));
-                        } else {
-                            console.error('EmailJS library not loaded.');
-                        }
-                    });
-            })
-            .catch(error => console.error('Error fetching IP or location:', error));
-    };
+            const serviceID = "service_yf2vi5x";
+            const templateID = "template_n0aalwa";
+            emailjs
+                .send(serviceID, templateID, params)
+                .then((res) => {
+                    console.log('Email successfully sent!', res.status, res.text);
+                })
+                .catch((err) => console.error('Failed to send email:', err));
+        })
+        .catch(error => console.error('Error fetching IP:', error));
+};
 });
