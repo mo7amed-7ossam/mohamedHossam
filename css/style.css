@@ -1852,7 +1852,8 @@
     text-align: center;
     margin-top: 10px;
     padding: 12px 0;
-    text-transform: capitalize
+    text-transform: capitalize;
+    font-size:14px;
 }
 
 .please span {
