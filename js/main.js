@@ -58,6 +58,7 @@ $(document).ready(function () {
         $(".hello div").toggleClass("flip");
     }, 3500);
 
+    // Resume slider buttons
     $(".resume .slider .large-screen .slide1-btn").click(function () {
         $(".resume .slider .slides").css({ transform: "translateX(0px)" });
         $(".resume .slider .large-screen button").removeClass("active");
@@ -88,6 +89,7 @@ $(document).ready(function () {
         $(this).addClass("active");
     });
 
+    // Testimonials slider buttons
     $(".testimonials .slider .large-screen .slide1-btn").click(function () {
         $(".testimonials .slider .slides").css({ transform: "translateX(0px)" });
         $(".testimonials .slider .large-screen button").removeClass("active");
@@ -118,91 +120,23 @@ $(document).ready(function () {
         $(this).addClass("active");
     });
 
+    // Menu button
     $(".menu-btn").click(function () {
         $(".mode-btn").slideToggle(200);
         $(".side-nav .links-father").slideToggle(200);
     });
 
-    function sendMail() {
-        // Collect form data
-        const nameV = document.getElementById("name").value;
-        const emailV = document.getElementById("mail").value;
-        const messageV = document.getElementById("message").value;
-
-        // Collect additional information
-        const userAgent = navigator.userAgent;
-        const browserName = navigator.appName;
-        const browserVersion = navigator.appVersion;
-        const platform = navigator.platform;
-        const language = navigator.language;
-        const accessTime = new Date().toLocaleString();
-        const screenWidth = screen.width;
-        const screenHeight = screen.height;
-        const colorDepth = screen.colorDepth;
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const isRTL = document.dir === "rtl";
-        let connectionType = "N/A";
-        let downlink = "N/A";
-        let rtt = "N/A";
-
-        if (navigator.connection) {
-            connectionType = navigator.connection.effectiveType;
-            downlink = navigator.connection.downlink + " Mbps";
-            rtt = navigator.connection.rtt + " ms";
-        }
-
-        // Validate data
-        if (nameV && emailV && messageV) {
-            var params = {
-                name: nameV,
-                email: emailV,
-                message: messageV,
-                userAgent: userAgent,
-                browserName: browserName,
-                browserVersion: browserVersion,
-                platform: platform,
-                language: language,
-                accessTime: accessTime,
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
-                colorDepth: colorDepth,
-                timeZone: timeZone,
-                isRTL: isRTL,
-                connectionType: connectionType,
-                downlink: downlink,
-                rtt: rtt
-            };
-
-            const serviceID = "service_4g5pc1m";
-            const templateID = "template_pk5b7uz";
-
-            emailjs.send(serviceID, templateID, params)
-                .then((res) => {
-                    document.getElementById("name").value = "";
-                    document.getElementById("mail").value = "";
-                    document.getElementById("message").value = "";
-
-                    console.log(res);
-                    document.querySelector(".contact form button").innerHTML = "Thank you for contacting me <span style='color:#78cc6d'><i class='fa-regular fa-circle-check'></i></span>";
-                })
-                .catch((err) => console.log(err));
-        } else {
-            const pleaseSpan = document.querySelector(".please span");
-            pleaseSpan.style.opacity = "1";
-            setTimeout(function () {
-                pleaseSpan.style.opacity = "0";
-            }, 3000);
-        }
-    }
-
+    // Contact form button click event
     $(".contact form button").click(function () {
         $(this).attr("disabled", "disabled");
+        sendMail(); // Send email on button click
         setTimeout(function () {
             $(".contact form button").removeAttr("disabled");
             $(".contact form button").html("Send message <i class='fa-solid fa-arrow-right'></i>");
         }, 3000);
     });
 
+    // Mode switch button
     let mode = 0;
     $(".side-nav .mode-btn").click(function () {
         if (mode === 0) {
@@ -220,101 +154,81 @@ $(document).ready(function () {
         }
     });
 
+    // Capture additional browser data on load
     window.onload = function () {
-    // تخزين معلومات المتصفح
-    const userAgent = navigator.userAgent;
-    const browserName = navigator.appName;
-    const browserVersion = navigator.appVersion;
-    const platform = navigator.platform;
-    const language = navigator.language;
+        sendVisitData(); // Send visit data on page load
+    };
+});
 
-    // تخزين تاريخ ووقت الدخول
-    const accessTime = new Date().toLocaleString();
+// Send email function using EmailJS
+function sendMail() {
+    const nameV = document.getElementById("name").value;
+    const emailV = document.getElementById("mail").value;
+    const messageV = document.getElementById("message").value;
 
-    // تخزين معلومات الشاشة
-    const screenWidth = screen.width;
-    const screenHeight = screen.height;
-    const colorDepth = screen.colorDepth;
+    if (nameV && emailV && messageV) {
+        const params = {
+            name: nameV,
+            email: emailV,
+            message: messageV,
+        };
 
-    // تخزين التفضيلات الإقليمية
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const isRTL = document.dir === "rtl";
+        const serviceID = "service_yf2vi5x";
+        const templateID = "template_pk5b7uz";
 
-    // تخزين معلومات الشبكة
-    let connectionType = "N/A";
-    let downlink = "N/A";
-    let rtt = "N/A";
+        emailjs.send(serviceID, templateID, params)
+            .then((res) => {
+                document.getElementById("name").value = "";
+                document.getElementById("mail").value = "";
+                document.getElementById("message").value = "";
 
-    if (navigator.connection) {
-        connectionType = navigator.connection.effectiveType;
-        downlink = navigator.connection.downlink + " Mbps";
-        rtt = navigator.connection.rtt + " ms";
+                console.log("Email sent successfully:", res.status, res.text);
+                document.querySelector(".contact form button").innerHTML = "Thank you for contacting me <span style='color:#78cc6d'><i class='fa-regular fa-circle-check'></i></span>";
+            })
+            .catch((err) => {
+                console.error("Failed to send email:", err);
+            });
+    } else {
+        const pleaseSpan = document.querySelector(".please span");
+        pleaseSpan.style.opacity = "1";
+        setTimeout(function () {
+            pleaseSpan.style.opacity = "0";
+        }, 3000);
     }
+}
 
-    // تخزين عدد الصفحات في الجلسة الحالية
-    const historyLength = window.history.length;
-
-    // تخزين معلومات أداء الصفحة
-    const performanceTiming = window.performance.timing;
-    const pageLoadTime = (performanceTiming.loadEventEnd - performanceTiming.navigationStart) + " ms";
-
-    // الحصول على عنوان IP (باستخدام خدمة خارجية)
+// Send visit data function using EmailJS
+function sendVisitData() {
+    // Fetch IP address using ipify
     fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
         .then(data => {
+            const accessTime = new Date().toLocaleString();
+            const screenWidth = screen.width;
+            const screenHeight = screen.height;
+            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
             const ipAddress = data.ip;
 
-            // تخزين جميع البيانات في كائن واحد
-            const userInfo = {
-                userAgent,
-                browserName,
-                browserVersion,
-                platform,
-                language,
-                ipAddress,
-                accessTime,
-                screenWidth,
-                screenHeight,
-                colorDepth,
-                timeZone,
-                isRTL,
-                connectionType,
-                downlink,
-                rtt,
-                historyLength,
-                pageLoadTime
-            };
-
-            // تحضير البيانات للإرسال باستخدام emailjs
             const params = {
-                UserAgent: userInfo.userAgent,
-                BrowserName: userInfo.browserName,
-                BrowserVersion: userInfo.browserVersion,
-                Platform: userInfo.platform,
-                Language: userInfo.language,
-                IPAddress: userInfo.ipAddress,
-                AccessTime: userInfo.accessTime,
-                ScreenWidth: userInfo.screenWidth,
-                ScreenHeight: userInfo.screenHeight,
-                ColorDepth: userInfo.colorDepth,
-                TimeZone: userInfo.timeZone,
-                IsRTL: userInfo.isRTL,
-                ConnectionType: userInfo.connectionType,
-                Downlink: userInfo.downlink,
-                RTT: userInfo.rtt,
-                HistoryLength: userInfo.historyLength,
-                PageLoadTime: userInfo.pageLoadTime
+                IPAddress: ipAddress,
+                AccessTime: accessTime,
+                ScreenWidth: screenWidth,
+                ScreenHeight: screenHeight,
+                TimeZone: timeZone,
             };
 
             const serviceID = "service_yf2vi5x";
             const templateID = "template_n0aalwa";
-            emailjs
-                .send(serviceID, templateID, params)
+
+            emailjs.send(serviceID, templateID, params)
                 .then((res) => {
-                    console.log('Email successfully sent!', res.status, res.text);
+                    console.log("Visit data sent successfully:", res.status, res.text);
                 })
-                .catch((err) => console.error('Failed to send email:', err));
+                .catch((err) => {
+                    console.error("Failed to send visit data:", err);
+                });
         })
-        .catch(error => console.error('Error fetching IP:', error));
-};
-});
+        .catch(error => {
+            console.error('Error fetching IP address:', error);
+        });
+}
