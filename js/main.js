@@ -9,50 +9,50 @@ document.onreadystatechange = function () {
 };
 
 $(document).ready(function () {
-    let screenWidth = $(window).width();
-    console.log(screenWidth);
+    // let screenWidth = $(window).width();
+    // console.log(screenWidth);
 
-    if (screenWidth > 1200) {
-        // Append images
-        for (let i = 2; i <= 300; i++) {
-            $(".site-body .main-section .profile .img-box").append("<img src='imgs/avatar/mohamedHossam (" + i + ").webp' >");
-        }
+    // if (screenWidth > 1200) {
+    //     // Append images
+    //     for (let i = 2; i <= 300; i++) {
+    //         $(".site-body .main-section .profile .img-box").append("<img src='imgs/avatar/mohamedHossam (" + i + ").webp' >");
+    //     }
 
-        // Scroll image logic
-        let scrollFollow = 0;
-        let fullScroll = $("html").height() - $(window).height();
+    //     // Scroll image logic
+    //     let scrollFollow = 0;
+    //     let fullScroll = $("html").height() - $(window).height();
 
-        $(window).scroll(function () {
-            let scrollNow = $(this).scrollTop();
-            let slide;
+    //     $(window).scroll(function () {
+    //         let scrollNow = $(this).scrollTop();
+    //         let slide;
 
-            if (scrollNow > scrollFollow && scrollNow < fullScroll) {
-                let go_down = setInterval(function () {
-                    if (scrollFollow < scrollNow) {
-                        scrollFollow++;
-                        slide = Math.ceil(scrollFollow / fullScroll * 299);
-                        $(".site-body .main-section .profile .img-box img").removeClass("active");
-                        $(".site-body .main-section .profile .img-box img:nth-child(" + slide + ")").addClass("active");
-                    } else {
-                        clearInterval(go_down);
-                    }
-                }, 10);
-            } else if (scrollNow < scrollFollow && scrollNow < fullScroll) {
-                let go_up = setInterval(function () {
-                    if (scrollFollow > scrollNow) {
-                        scrollFollow--;
-                        slide = Math.round(scrollFollow / fullScroll * 299) + 1;
-                        $(".site-body .main-section .profile .img-box img").removeClass("active");
-                        $(".site-body .main-section .profile .img-box img:nth-child(" + slide + ")").addClass("active");
-                    } else {
-                        clearInterval(go_up);
-                    }
-                }, 10);
-            }
-        });
-    } else {
-        $(".site-body .main-section .profile .img-box").append("<div class='float-me'><img src='imgs/me.jpg'></div>");
-    }
+    //         if (scrollNow > scrollFollow && scrollNow < fullScroll) {
+    //             let go_down = setInterval(function () {
+    //                 if (scrollFollow < scrollNow) {
+    //                     scrollFollow++;
+    //                     slide = Math.ceil(scrollFollow / fullScroll * 299);
+    //                     $(".site-body .main-section .profile .img-box img").removeClass("active");
+    //                     $(".site-body .main-section .profile .img-box img:nth-child(" + slide + ")").addClass("active");
+    //                 } else {
+    //                     clearInterval(go_down);
+    //                 }
+    //             }, 10);
+    //         } else if (scrollNow < scrollFollow && scrollNow < fullScroll) {
+    //             let go_up = setInterval(function () {
+    //                 if (scrollFollow > scrollNow) {
+    //                     scrollFollow--;
+    //                     slide = Math.round(scrollFollow / fullScroll * 299) + 1;
+    //                     $(".site-body .main-section .profile .img-box img").removeClass("active");
+    //                     $(".site-body .main-section .profile .img-box img:nth-child(" + slide + ")").addClass("active");
+    //                 } else {
+    //                     clearInterval(go_up);
+    //                 }
+    //             }, 10);
+    //         }
+    //     });
+    // } else {
+    //     $(".site-body .main-section .profile .img-box").append("<div class='float-me'><img src='imgs/me.jpg'></div>");
+    // }
 
     setInterval(function () {
         $(".hello div").toggleClass("flip");
