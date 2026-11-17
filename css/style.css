@@ -925,7 +925,7 @@
 
 .hero .technical-skills .soft-skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
     gap: 14px
 }
 
@@ -1012,6 +1012,15 @@
     .hero .technical-skills .soft-skill-card {
         padding: 20px
     }
+}
+
+.hero .technical-skills .partitions-con .partition-4 {
+    width: 100%
+}
+
+.hero .technical-skills .language-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr))
 }
 
 @media (max-width: 1499px) {
@@ -2367,6 +2376,10 @@
 @media (max-width: 760px) {
     .hero .technical-skills .partition-4 .large-title {
         font-size: 24px
+    }
+
+    .hero .technical-skills .language-list {
+        grid-template-columns: 1fr
     }
 
     .hero .technical-skills .language-card {
