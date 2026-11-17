@@ -598,6 +598,48 @@
 .light .hero .technical-skills .partition-1 .skills-container .card {
     background-image: linear-gradient(120deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .04))
 }
+.hero .technical-skills .partition-1 .skills-container.tech-stack-groups .tech-group {
+    padding: 24px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px
+}
+
+.hero .technical-skills .partition-1 .tech-group-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #78cc6d
+}
+
+.hero .technical-skills .partition-1 .tech-group-title h3 {
+    margin: 0;
+    color: inherit;
+    font-size: 16px;
+    font-weight: 600
+}
+
+.hero .technical-skills .partition-1 .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px
+}
+
+.hero .technical-skills .partition-1 .skill-tags span {
+    padding: 7px 11px;
+    border: 1px solid #ffffff24;
+    border-radius: 999px;
+    background: #ffffff0a;
+    font-size: 13px;
+    line-height: 1.35
+}
+
+.light .hero .technical-skills .partition-1 .skill-tags span {
+    border-color: #0000001f;
+    background: #00000005
+}
+
 
 .hero .technical-skills .partition-1 .skills-container .card {
     width: calc((100% - 30px)/ 2);
@@ -1517,6 +1559,7 @@
 
     .contact form input,
     .courses .container .card,
+    .hero .technical-skills .partition-1 .skills-container.tech-stack-groups .tech-group,
     .hero .technical-skills .partition-1 .skills-container .card,
     .partitions-con .partition-4,
     .partitions-con .partition-5,
