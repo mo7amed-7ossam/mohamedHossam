@@ -911,6 +911,109 @@
     color: #202923
 }
 
+.hero .technical-skills .soft-skills-intro {
+    max-width: 660px;
+    margin: -20px 0 26px;
+    color: #b6b6b6;
+    font-size: 15px;
+    line-height: 1.7
+}
+
+.light .hero .technical-skills .soft-skills-intro {
+    color: #62686a
+}
+
+.hero .technical-skills .soft-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px
+}
+
+.hero .technical-skills .soft-skill-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 22px;
+    border: 1px solid #ffffff1a;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #202322 0%, #171918 78%);
+    transition: transform .2s ease, border-color .2s ease
+}
+
+.hero .technical-skills .soft-skill-card:hover {
+    transform: translateY(-3px);
+    border-color: #78cc6d66
+}
+
+.hero .technical-skills .soft-skill-card::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #78cc6d;
+    content: ""
+}
+
+.hero .technical-skills .soft-skill-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px
+}
+
+.hero .technical-skills .soft-skill-icon {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid #78cc6d40;
+    border-radius: 12px;
+    background: #78cc6d12;
+    color: #8cda82;
+    font-size: 16px
+}
+
+.hero .technical-skills .soft-skill-number {
+    color: #737b76;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums
+}
+
+.hero .technical-skills .soft-skill-card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.35
+}
+
+.hero .technical-skills .soft-skill-card p {
+    margin: 0;
+    color: #aeb3b0;
+    font-size: 13px;
+    line-height: 1.65
+}
+
+.light .hero .technical-skills .soft-skill-card {
+    border-color: #15231c1c;
+    background: linear-gradient(145deg, #ffffff 0%, #f5f8f5 78%)
+}
+
+.light .hero .technical-skills .soft-skill-card p {
+    color: #5d6961
+}
+
+@media (max-width: 760px) {
+    .hero .technical-skills .soft-skills-grid {
+        grid-template-columns: 1fr;
+        gap: 12px
+    }
+
+    .hero .technical-skills .soft-skill-card {
+        padding: 20px
+    }
+}
+
 @media (max-width: 1499px) {
     .hero .technical-skills .tool-stack-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr))
