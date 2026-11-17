@@ -3014,7 +3014,7 @@
 }
 
 
-/* Featured project: Sindbad Inside prototype */
+/* Shared Projects presentation */
 .projects .project-total {
     display: inline-flex;
     align-items: center;
@@ -3028,189 +3028,6 @@
     vertical-align: middle;
 }
 
-.projects .project-feature {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-    min-height: 360px;
-    margin: 0 0 24px;
-    overflow: hidden;
-    border: 1px solid #78cc6d52;
-    border-radius: 24px;
-    background: linear-gradient(120deg, #1d2923 0%, #171a18 65%);
-    box-shadow: 0 22px 54px #00000024;
-}
-
-.projects .project-feature-media {
-    position: relative;
-    display: block;
-    min-height: 360px;
-    overflow: hidden;
-    background: #102326;
-}
-
-.projects .project-feature-media::after {
-    position: absolute;
-    inset: 45% 0 0;
-    background: linear-gradient(0deg, #081112a8, transparent);
-    content: "";
-    pointer-events: none;
-}
-
-.projects .project-feature-media img {
-    width: 100%;
-    height: 100%;
-    min-height: 360px;
-    object-fit: contain;
-    object-position: center top;
-    transition: transform .45s ease;
-}
-
-.projects .project-feature-media:hover img {
-    transform: scale(1.025);
-}
-
-.projects .project-feature-badge,
-.projects .project-feature-open {
-    position: absolute;
-    z-index: 1;
-    top: 18px;
-}
-
-.projects .project-feature-badge {
-    left: 18px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 12px;
-    border: 1px solid #ffffff35;
-    border-radius: 999px;
-    background: #101918d9;
-    color: #e6f5e3;
-    font-size: 11px;
-    font-weight: 650;
-    backdrop-filter: blur(10px);
-}
-
-.projects .project-feature-badge i {
-    color: #a2e39a;
-}
-
-.projects .project-feature-open {
-    right: 18px;
-    display: grid;
-    width: 38px;
-    height: 38px;
-    place-items: center;
-    border: 1px solid #ffffff35;
-    border-radius: 50%;
-    background: #101918d9;
-    color: #fff;
-}
-
-.projects .project-feature-content {
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(25px, 3.5vw, 46px);
-}
-
-.projects .project-feature-kicker {
-    margin-bottom: 10px;
-    color: #a2e39a;
-    font-size: 10px;
-    font-weight: 750;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-}
-
-.projects .project-feature-content h3 {
-    margin: 0;
-    color: #f3f6f3;
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 680;
-    line-height: 1.2;
-}
-
-.projects .project-feature-content > p {
-    max-width: 520px;
-    margin: 13px 0 19px;
-    color: #c0c8c2;
-    font-size: 13px;
-    line-height: 1.75;
-}
-
-.projects .project-feature-points {
-    display: grid;
-    gap: 9px;
-    margin: 0 0 20px;
-}
-
-.projects .project-feature-points span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #e0e7e0;
-    font-size: 12px;
-}
-
-.projects .project-feature-points i {
-    width: 16px;
-    color: #8cda82;
-    text-align: center;
-}
-
-.projects .project-feature-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: auto;
-}
-
-.projects .project-feature-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.projects .project-feature-tech span {
-    padding: 5px 8px;
-    border: 1px solid #ffffff20;
-    border-radius: 999px;
-    color: #cad4cc;
-    font-size: 9px;
-    line-height: 1.2;
-}
-
-.projects .project-feature-cta {
-    display: inline-flex;
-    min-height: 42px;
-    align-items: center;
-    gap: 9px;
-    padding: 0 15px;
-    border: 1px solid #8cda82;
-    border-radius: 999px;
-    background: #78cc6d;
-    color: #10200f;
-    font-size: 11px;
-    font-weight: 750;
-    white-space: nowrap;
-    transition: transform .2s ease, background-color .2s ease;
-}
-
-.projects .project-feature-cta:hover {
-    transform: translateY(-2px);
-    background: #a2e39a;
-}
-
-.projects .project-feature-note {
-    margin-top: 15px;
-    color: #9ba59d;
-    font-size: 10px;
-}
-
 .projects .project-grid .project-category {
     margin-bottom: 4px;
     color: #8cda82;
@@ -3220,81 +3037,43 @@
     text-transform: uppercase;
 }
 
-.light .projects .project-total {
-    color: #3e873a;
+.projects .project-prototype-badge {
+    position: absolute;
+    z-index: 2;
+    top: 13px;
+    left: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border: 1px solid #ffffff35;
+    border-radius: 999px;
+    background: #101918d9;
+    color: #e6f5e3;
+    font-size: 9px;
+    font-weight: 650;
+    backdrop-filter: blur(10px);
 }
 
-.light .projects .project-feature {
-    border-color: #94ce8c;
-    background: linear-gradient(120deg, #edf8eb 0%, #fff 72%);
-    box-shadow: 0 18px 42px #13251a12;
+.projects .project-prototype-badge i {
+    color: #a2e39a;
 }
 
-.light .projects .project-feature-content h3 {
-    color: #202923;
+.projects .project-prototype-note {
+    margin-top: 10px;
+    color: #9ba59d;
+    font-size: 10px;
+    line-height: 1.5;
 }
 
-.light .projects .project-feature-content > p,
-.light .projects .project-feature-points span,
-.light .projects .project-feature-note {
-    color: #56655a;
-}
-
-.light .projects .project-feature-tech span {
-    border-color: #15231c1c;
-    color: #506054;
-}
-
-@media (max-width: 900px) {
-    .projects .project-feature {
-        grid-template-columns: 1fr;
-    }
-
-    .projects .project-feature-media,
-    .projects .project-feature-media img {
-        min-height: 0;
-        aspect-ratio: 16 / 9;
-    }
-}
-
-@media (max-width: 760px) {
-    .projects .project-feature {
-        border-radius: 19px;
-    }
-
-    .projects .project-feature-content {
-        padding: 22px;
-    }
-
-    .projects .project-feature-footer {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .projects .project-feature-media img,
-    .projects .project-feature-cta {
-        transition: none;
-    }
-}
-
-/* Sindbad feature card brand logo */
-.projects .project-feature-media {
-    display: grid;
-    isolation: isolate;
-    place-items: center;
+.projects .sindbad-project-card .img-con {
+    position: relative;
     background: radial-gradient(ellipse at 50% 48%, #0c5963 0%, #0a424a 46%, #08343b 100%);
 }
 
-.projects .project-feature-media::after {
-    display: none;
-}
-
-.projects .project-feature-media::before {
+.projects .sindbad-project-card .img-con::before {
     position: absolute;
     inset: 14%;
-    z-index: 0;
     border: 1px solid #ffffff12;
     border-radius: 50%;
     background: radial-gradient(ellipse at 50% 50%, #70cddd16 0%, transparent 70%);
@@ -3302,48 +3081,46 @@
     pointer-events: none;
 }
 
-.projects .project-feature-media img {
+.projects .sindbad-project-card .img-con img {
     position: relative;
     z-index: 1;
-    width: min(72%, 440px);
+    width: min(76%, 280px);
     height: auto;
-    min-height: 0;
-    max-height: 170px;
+    max-height: 120px;
     object-fit: contain;
-    object-position: center;
-    filter: drop-shadow(0 12px 25px #00191c70);
+    filter: drop-shadow(0 10px 24px #00191c70);
 }
 
-.projects .project-brand-logo-light {
+.projects .sindbad-project-card .img-con .layer {
+    z-index: 3;
+}
+
+.projects .sindbad-project-card .project-brand-logo-light {
     display: none;
 }
 
-.light .projects .project-feature-media {
+.light .projects .project-total {
+    color: #3e873a;
+}
+
+.light .projects .sindbad-project-card .img-con {
     background: radial-gradient(ellipse at 50% 48%, #ffffff 0%, #edf6f4 56%, #deece9 100%);
 }
 
-.light .projects .project-feature-media::before {
+.light .projects .sindbad-project-card .img-con::before {
     border-color: #0a596315;
     background: radial-gradient(ellipse at 50% 50%, #0a8ba015 0%, transparent 70%);
 }
 
-.light .projects .project-feature-media img.project-brand-logo-dark {
+.light .projects .sindbad-project-card .img-con img.project-brand-logo-dark {
     display: none;
 }
 
-.light .projects .project-feature-media img.project-brand-logo-light {
+.light .projects .sindbad-project-card .img-con img.project-brand-logo-light {
     display: block;
     filter: drop-shadow(0 8px 18px #07363b20);
 }
 
-@media (max-width: 900px) {
-    .projects .project-feature-media {
-        min-height: 0;
-        aspect-ratio: 16 / 9;
-    }
-
-    .projects .project-feature-media img {
-        max-height: 150px;
-        aspect-ratio: auto;
-    }
+.light .projects .project-prototype-note {
+    color: #56655a;
 }
