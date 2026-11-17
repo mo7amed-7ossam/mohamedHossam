@@ -4012,14 +4012,14 @@
 }
 
 #resume.resume .courses .container .card:first-of-type .content::after {
-    right: -32px;
+    right: -24px;
     left: auto;
     transform: translateX(50%);
 }
 
 #resume.resume .courses .container .card:last-of-type .content::after {
     right: auto;
-    left: -32px;
+    left: -24px;
     transform: translateX(-50%);
 }
 
@@ -4066,7 +4066,7 @@
     #resume.resume .courses .container .card:first-of-type .content::after,
     #resume.resume .courses .container .card:last-of-type .content::after {
         right: auto;
-        left: -26px;
+        left: -18px;
         transform: translateX(-50%);
     }
 }
