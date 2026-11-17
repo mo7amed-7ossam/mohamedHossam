@@ -3230,6 +3230,70 @@
     display: block;
 }
 
+
+/* Brand-specific backdrops keep each restored logo distinct. */
+#projects.projects .project-feature:nth-child(1) .project-feature-media {
+    background: radial-gradient(ellipse at 50% 52%, #23645f 0%, #194744 48%, #102d32 100%);
+}
+
+.light #projects.projects .project-feature:nth-child(1) .project-feature-media {
+    background: radial-gradient(ellipse at 50% 52%, #ffffff 0%, #e5f2ed 50%, #c6ded7 100%);
+}
+
+#projects.projects .project-feature:nth-child(2) .project-feature-media {
+    background: radial-gradient(circle at 20% 25%, #fff0c7 0%, transparent 38%), linear-gradient(135deg, #e7edf7 0%, #cbd9ef 100%);
+}
+
+#projects.projects .project-feature:nth-child(3) .project-feature-media {
+    background: radial-gradient(circle at 75% 28%, #dfbd6540 0%, transparent 34%), linear-gradient(135deg, #49656d 0%, #243a43 100%);
+}
+
+#projects.projects .project-feature:nth-child(4) .project-feature-media {
+    background: radial-gradient(ellipse at 50% 50%, #efffed 0%, #d4efd8 62%, #b4dbbd 100%);
+}
+
+#projects.projects .project-feature:nth-child(5) .project-feature-media {
+    background: radial-gradient(circle at 50% 46%, #473585 0%, #28223d 52%, #171821 100%);
+}
+
+#projects.projects .project-feature:nth-child(6) .project-feature-media {
+    background: radial-gradient(circle at 50% 44%, #faf7f4 0%, #e4e5e5 65%, #c8cfd1 100%);
+}
+
+#projects.projects .project-feature:nth-child(7) .project-feature-media {
+    background: radial-gradient(circle at 50% 40%, #142633 0%, #101b23 60%, #111416 100%);
+}
+
+#projects.projects .project-feature:nth-child(8) .project-feature-media {
+    background: radial-gradient(circle at 50% 46%, #466c58 0%, #294c3a 58%, #1b382d 100%);
+}
+
+#projects.projects .project-feature:nth-child(9) .project-feature-media {
+    background: radial-gradient(circle at 50% 42%, #2b4f7b 0%, #1c385d 58%, #152b49 100%);
+}
+
+#projects.projects .project-feature:nth-child(10) .project-feature-media {
+    background: radial-gradient(circle at 50% 50%, #34213f 0%, #23182d 58%, #17151d 100%);
+}
+
+#projects.projects .project-feature:nth-child(11) .project-feature-media {
+    background: radial-gradient(circle at 50% 47%, #402078 0%, #27164b 58%, #171325 100%);
+}
+
+#projects.projects .project-feature:nth-child(12) .project-feature-media {
+    background: radial-gradient(circle at 50% 44%, #f8eddd 0%, #e7d6c0 56%, #c7af91 100%);
+}
+
+#projects.projects .project-feature:nth-child(13) .project-feature-media {
+    background: radial-gradient(circle at 50% 48%, #050706 0%, #101b17 50%, #19332d 100%);
+}
+
+#projects.projects .project-feature:nth-child(13) img.project-feature-logo {
+    padding: 0;
+    object-fit: cover;
+    mix-blend-mode: screen;
+}
+
 .projects .project-feature-badge,
 .projects .project-feature-open {
     position: absolute;
