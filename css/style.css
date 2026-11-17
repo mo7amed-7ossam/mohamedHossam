@@ -3939,3 +3939,110 @@
 @media (prefers-reduced-motion: reduce) {
     #resume.resume .courses .container .card .content a { transition: none; }
 }
+
+/* Blend the original learning timeline with the refreshed card treatment. */
+#resume.resume .courses .container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    column-gap: 48px;
+    row-gap: 30px;
+    margin-top: 27px;
+    padding: 0;
+}
+
+#resume.resume .courses .container::before { display: none; }
+
+#resume.resume .courses .container::after {
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 50%;
+    display: block;
+    width: 1px;
+    height: auto;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #8cda8240, #ffffff12 45%, #8cda8240);
+    content: "";
+    pointer-events: none;
+}
+
+#resume.resume .courses .container > .left { display: none; }
+
+#resume.resume .courses .container .card:first-of-type {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#resume.resume .courses .container .card:last-of-type {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#resume.resume .courses .container .card .content {
+    overflow: visible;
+}
+
+#resume.resume .courses .container .card .content::before {
+    border-radius: 19px 19px 0 0;
+}
+
+#resume.resume .courses .container .card .content::after {
+    top: 28px;
+    display: block;
+    width: 11px;
+    border: 3px solid #171b18;
+    background: #8cda82;
+    box-shadow: 0 0 0 1px #8cda8270;
+}
+
+#resume.resume .courses .container .card:first-of-type .content::after {
+    right: -31px;
+    left: auto;
+    transform: translateX(50%);
+}
+
+#resume.resume .courses .container .card:last-of-type .content::after {
+    right: auto;
+    left: -31px;
+    transform: translateX(-50%);
+}
+
+.light #resume.resume .courses .container::after {
+    background: linear-gradient(180deg, #4b994340, #15231c16 45%, #4b994340);
+}
+
+.light #resume.resume .courses .container .card .content::after {
+    border-color: #fff;
+    background: #4b9943;
+    box-shadow: 0 0 0 1px #4b994370;
+}
+
+@media (max-width: 760px) {
+    #resume.resume .courses .container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding-left: 27px;
+    }
+
+    #resume.resume .courses .container::after {
+        top: 10px;
+        bottom: 10px;
+        left: 9px;
+        transform: none;
+    }
+
+    #resume.resume .courses .container .card:first-of-type,
+    #resume.resume .courses .container .card:last-of-type {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    #resume.resume .courses .container .card:first-of-type .content::after,
+    #resume.resume .courses .container .card:last-of-type .content::after {
+        right: auto;
+        left: -26.5px;
+        transform: translateX(-50%);
+    }
+}
