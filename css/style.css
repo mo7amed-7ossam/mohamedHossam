@@ -3278,3 +3278,72 @@
         transition: none;
     }
 }
+
+/* Sindbad feature card brand logo */
+.projects .project-feature-media {
+    display: grid;
+    isolation: isolate;
+    place-items: center;
+    background: radial-gradient(ellipse at 50% 48%, #0c5963 0%, #0a424a 46%, #08343b 100%);
+}
+
+.projects .project-feature-media::after {
+    display: none;
+}
+
+.projects .project-feature-media::before {
+    position: absolute;
+    inset: 14%;
+    z-index: 0;
+    border: 1px solid #ffffff12;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 50%, #70cddd16 0%, transparent 70%);
+    content: "";
+    pointer-events: none;
+}
+
+.projects .project-feature-media img {
+    position: relative;
+    z-index: 1;
+    width: min(72%, 440px);
+    height: auto;
+    min-height: 0;
+    max-height: 170px;
+    object-fit: contain;
+    object-position: center;
+    filter: drop-shadow(0 12px 25px #00191c70);
+}
+
+.projects .project-brand-logo-light {
+    display: none;
+}
+
+.light .projects .project-feature-media {
+    background: radial-gradient(ellipse at 50% 48%, #ffffff 0%, #edf6f4 56%, #deece9 100%);
+}
+
+.light .projects .project-feature-media::before {
+    border-color: #0a596315;
+    background: radial-gradient(ellipse at 50% 50%, #0a8ba015 0%, transparent 70%);
+}
+
+.light .projects .project-feature-media img.project-brand-logo-dark {
+    display: none;
+}
+
+.light .projects .project-feature-media img.project-brand-logo-light {
+    display: block;
+    filter: drop-shadow(0 8px 18px #07363b20);
+}
+
+@media (max-width: 900px) {
+    .projects .project-feature-media {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    .projects .project-feature-media img {
+        max-height: 150px;
+        aspect-ratio: auto;
+    }
+}
