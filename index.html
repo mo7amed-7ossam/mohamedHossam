@@ -9,7 +9,7 @@
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- css -->
-    <link rel="stylesheet" href="css/style.css?v=20261117-projects-14">
+    <link rel="stylesheet" href="css/style.css?v=20261117-experience-01">
     <!-- page icon -->
     <link rel="icon" href="imgs/icon1.svg">
     <!-- font -->
@@ -768,9 +768,10 @@
                         <div class="large-title">
                             Work Experience & Courses
                         </div>
-                        <div class="slider">
+                        <div class="slider experience-slider" role="region" aria-roledescription="carousel" aria-label="Work experience">
                             <div class="slides">
-                                <div class="box">
+                                <div class="box experience-card" role="group" aria-roledescription="slide" aria-label="Experience 1 of 3">
+                                    <span class="experience-number" aria-hidden="true">01</span>
                                     <div class="period">
                                         Current
                                         <span class="dot"></span>
@@ -792,7 +793,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box">
+                                <div class="box experience-card" role="group" aria-roledescription="slide" aria-label="Experience 2 of 3">
+                                    <span class="experience-number" aria-hidden="true">02</span>
                                     <div class="period">
                                         Nov 2024 – Present
                                         <span class="dot"></span>
@@ -817,7 +819,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="box">
+                                <div class="box experience-card" role="group" aria-roledescription="slide" aria-label="Experience 3 of 3">
+                                    <span class="experience-number" aria-hidden="true">03</span>
                                     <div class="period">
                                         Aug 2021 – Present
                                         <span class="dot"></span>
@@ -843,14 +846,22 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="btns large-screen">
-                                <button class="slide1-btn active"></button>
-                                <button class="slide2-btn"></button>
-                            </div>
-                            <div class="btns small-screen">
-                                <button class="slide1-btn active"></button>
-                                <button class="slide2-btn"></button>
-                                <button class="slide3-btn"></button>
+                            <div class="experience-slider-controls">
+                                <div class="experience-slider-status" aria-live="polite" aria-atomic="true">
+                                    <span class="experience-range">01–02</span>
+                                    <span class="experience-total">/ 03</span>
+                                </div>
+                                <div class="experience-progress" role="progressbar" aria-label="Experience carousel progress" aria-valuemin="1" aria-valuemax="2" aria-valuenow="1">
+                                    <span></span>
+                                </div>
+                                <div class="experience-slider-arrows">
+                                    <button class="experience-arrow" type="button" data-experience-direction="-1" aria-label="Previous experience" disabled>
+                                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="experience-arrow" type="button" data-experience-direction="1" aria-label="Next experience">
+                                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -3570,3 +3570,241 @@
 .light .projects .project-feature-media-fallback {
     background: radial-gradient(ellipse at 50% 40%, #f0f5f0 0%, #e6ece7 72%);
 }
+
+/* Experience carousel: project-card surfaces with a focused, accessible slider. */
+#resume.resume .experience-slider {
+    overflow: hidden;
+}
+
+#resume.resume .experience-slider .slides {
+    display: flex;
+    width: 100%;
+    gap: 18px;
+    transition: transform .55s cubic-bezier(.2, .75, .25, 1);
+    will-change: transform;
+}
+
+#resume.resume .experience-slider .experience-card {
+    position: relative;
+    display: flex;
+    width: auto;
+    min-width: 0;
+    min-height: 300px;
+    flex: 0 0 calc(50% - 9px);
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #ffffff20;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #202621 0%, #171b18 72%);
+    text-align: left;
+    box-shadow: 0 16px 38px #00000018;
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+#resume.resume .experience-card::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 2px;
+    background: linear-gradient(90deg, #8cda82, #8cda8200 78%);
+    content: "";
+}
+
+#resume.resume .experience-card:hover {
+    transform: translateY(-3px);
+    border-color: #8cda8260;
+}
+
+#resume.resume .experience-card:first-child {
+    border-color: #8cda8248;
+}
+
+#resume.resume .experience-number {
+    position: absolute;
+    top: 7px;
+    right: 21px;
+    color: #8cda821f;
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
+}
+
+#resume.resume .experience-card .period {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 8px;
+    margin: 22px 22px 0;
+    padding: 7px 11px;
+    border: 1px solid #ffffff24;
+    border-radius: 999px;
+    background: #ffffff08;
+    color: #d2d9d2;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: none;
+}
+
+#resume.resume .experience-card:first-child .period {
+    border-color: #8cda8240;
+    background: #8cda8210;
+    color: #a6e18d;
+}
+
+#resume.resume .experience-card .period .dot {
+    position: static;
+    width: 7px;
+    min-width: 7px;
+    transform: none;
+}
+
+#resume.resume .experience-card .box-body {
+    padding: 17px 22px 23px;
+}
+
+#resume.resume .experience-card .job-title {
+    color: #f0f3ef;
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 1.25;
+}
+
+#resume.resume .experience-card .location {
+    margin: 9px 0 16px;
+    color: #9ca89e;
+    font-size: 12px;
+    line-height: 1.55;
+    text-transform: none;
+}
+
+#resume.resume .experience-card .job-description {
+    display: grid;
+    gap: 8px;
+}
+
+#resume.resume .experience-card .job-description p {
+    margin: 0;
+    color: #c1c9c2;
+    font-size: 13px;
+    line-height: 1.7;
+    opacity: 1;
+}
+
+#resume.resume .experience-slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+#resume.resume .experience-slider-status {
+    display: flex;
+    min-width: 72px;
+    align-items: baseline;
+    gap: 5px;
+    color: #aab3aa;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+#resume.resume .experience-range {
+    color: #e8eee8;
+    font-weight: 750;
+}
+
+#resume.resume .experience-total { color: #89938a; }
+
+#resume.resume .experience-progress {
+    height: 3px;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #ffffff20;
+}
+
+#resume.resume .experience-progress span {
+    display: block;
+    width: 50%;
+    height: 100%;
+    border-radius: inherit;
+    background: #8cda82;
+    transition: width .35s ease;
+}
+
+#resume.resume .experience-slider-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+#resume.resume .experience-arrow {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid #ffffff2b;
+    border-radius: 50%;
+    background: #ffffff08;
+    color: #e8eee8;
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+#resume.resume .experience-arrow:hover:not(:disabled) {
+    border-color: #8cda82;
+    background: #8cda82;
+    color: #152014;
+}
+
+#resume.resume .experience-arrow:disabled {
+    cursor: default;
+    opacity: .4;
+}
+
+.light #resume.resume .experience-card {
+    border-color: #15231c1c;
+    background: linear-gradient(135deg, #edf8eb 0%, #fff 76%);
+    box-shadow: 0 18px 42px #13251a12;
+}
+
+.light #resume.resume .experience-card .job-title { color: #202923; }
+
+.light #resume.resume .experience-card .location,
+.light #resume.resume .experience-card .job-description p { color: #56655a; }
+
+.light #resume.resume .experience-card .period {
+    border-color: #15231c20;
+    background: #15231c08;
+    color: #506054;
+}
+
+.light #resume.resume .experience-card:first-child .period {
+    border-color: #4b994340;
+    background: #4b994310;
+    color: #3e873a;
+}
+
+.light #resume.resume .experience-range { color: #202923; }
+.light #resume.resume .experience-total { color: #687569; }
+
+.light #resume.resume .experience-arrow {
+    border-color: #15231c25;
+    background: #ffffffa8;
+    color: #263329;
+}
+
+@media (max-width: 760px) {
+    #resume.resume .experience-slider .experience-card {
+        min-height: 0;
+        flex-basis: 100%;
+    }
+
+    #resume.resume .experience-slider-controls { gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #resume.resume .experience-slider .slides,
+    #resume.resume .experience-progress span,
+    #resume.resume .experience-card { transition: none; }
+}
