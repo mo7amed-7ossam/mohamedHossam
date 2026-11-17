@@ -3960,15 +3960,29 @@
     bottom: 12px;
     left: 50%;
     display: block;
-    width: 1px;
+    width: 2px;
     height: auto;
     transform: translateX(-50%);
-    background: linear-gradient(180deg, #8cda8240, #ffffff12 45%, #8cda8240);
+    background: linear-gradient(180deg, #8cda8278, #ffffff30 48%, #8cda8278);
     content: "";
     pointer-events: none;
 }
 
 #resume.resume .courses .container > .left { display: none; }
+
+#resume.resume .courses .container .card { position: relative; }
+
+#resume.resume .courses .container .card::before {
+    position: absolute;
+    top: 36px;
+    width: 24px;
+    height: 2px;
+    background: #8cda8290;
+    content: "";
+}
+
+#resume.resume .courses .container .card:first-of-type::before { right: -24px; }
+#resume.resume .courses .container .card:last-of-type::before { left: -24px; }
 
 #resume.resume .courses .container .card:first-of-type {
     grid-column: 1;
@@ -3991,32 +4005,34 @@
 #resume.resume .courses .container .card .content::after {
     top: 28px;
     display: block;
-    width: 11px;
-    border: 3px solid #171b18;
+    width: 12px;
+    border: 2px solid #171b18;
     background: #8cda82;
-    box-shadow: 0 0 0 1px #8cda8270;
+    box-shadow: 0 0 0 1px #8cda82a0, 0 0 0 5px #8cda821c;
 }
 
 #resume.resume .courses .container .card:first-of-type .content::after {
-    right: -31px;
+    right: -32px;
     left: auto;
     transform: translateX(50%);
 }
 
 #resume.resume .courses .container .card:last-of-type .content::after {
     right: auto;
-    left: -31px;
+    left: -32px;
     transform: translateX(-50%);
 }
 
 .light #resume.resume .courses .container::after {
-    background: linear-gradient(180deg, #4b994340, #15231c16 45%, #4b994340);
+    background: linear-gradient(180deg, #4b9943a0, #15231c35 48%, #4b9943a0);
 }
+
+.light #resume.resume .courses .container .card::before { background: #4b994390; }
 
 .light #resume.resume .courses .container .card .content::after {
     border-color: #fff;
     background: #4b9943;
-    box-shadow: 0 0 0 1px #4b994370;
+    box-shadow: 0 0 0 1px #4b9943a0, 0 0 0 5px #4b99431c;
 }
 
 @media (max-width: 760px) {
@@ -4039,10 +4055,18 @@
         grid-row: auto;
     }
 
+    #resume.resume .courses .container .card:first-of-type::before,
+    #resume.resume .courses .container .card:last-of-type::before {
+        top: 36px;
+        right: auto;
+        left: -18px;
+        width: 18px;
+    }
+
     #resume.resume .courses .container .card:first-of-type .content::after,
     #resume.resume .courses .container .card:last-of-type .content::after {
         right: auto;
-        left: -26.5px;
+        left: -26px;
         transform: translateX(-50%);
     }
 }
