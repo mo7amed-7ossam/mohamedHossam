@@ -2247,3 +2247,129 @@
     opacity: 0
 }
 
+
+.hero .technical-skills .partition-4 .large-title {
+    margin: 18px 0 20px;
+    font-size: 26px;
+    line-height: 1.3
+}
+
+.hero .technical-skills .language-list {
+    gap: 12px;
+    margin-top: 0
+}
+
+.hero .technical-skills .language-card {
+    padding: 17px 18px;
+    border: 1px solid #ffffff1a;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #202322 0%, #171918 78%);
+    transition: border-color .2s ease, transform .2s ease
+}
+
+.hero .technical-skills .language-card:hover {
+    transform: translateY(-2px);
+    border-color: #78cc6d66
+}
+
+.hero .technical-skills .language-card-head,
+.hero .technical-skills .language-identity {
+    display: flex;
+    align-items: center
+}
+
+.hero .technical-skills .language-card-head {
+    justify-content: space-between;
+    gap: 12px
+}
+
+.hero .technical-skills .language-identity {
+    gap: 12px
+}
+
+.hero .technical-skills .language-flag {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid #ffffff1c;
+    border-radius: 12px;
+    background: #ffffff08
+}
+
+.hero .technical-skills .language-flag img {
+    display: block;
+    width: 30px;
+    height: 22px;
+    border-radius: 4px;
+    object-fit: cover
+}
+
+.hero .technical-skills .language-name {
+    font-size: 15px;
+    font-weight: 650;
+    text-transform: capitalize
+}
+
+.hero .technical-skills .language-level-value {
+    padding: 5px 9px;
+    border: 1px solid #78cc6d44;
+    border-radius: 999px;
+    background: #78cc6d12;
+    color: #8cda82;
+    font-size: 12px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums
+}
+
+.hero .technical-skills .language-level-meta {
+    margin: 14px 0 8px;
+    color: #aeb3b0;
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase
+}
+
+.hero .technical-skills .language-meter {
+    height: 6px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #ffffff15
+}
+
+.hero .technical-skills .language-meter span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #78cc6d, #a5e39b)
+}
+
+.light .hero .technical-skills .language-card {
+    border-color: #15231c1c;
+    background: linear-gradient(145deg, #ffffff 0%, #f5f8f5 78%)
+}
+
+.light .hero .technical-skills .language-flag {
+    border-color: #15231c1c;
+    background: #15231c08
+}
+
+.light .hero .technical-skills .language-level-meta {
+    color: #5d6961
+}
+
+.light .hero .technical-skills .language-meter {
+    background: #15231c18
+}
+
+@media (max-width: 760px) {
+    .hero .technical-skills .partition-4 .large-title {
+        font-size: 24px
+    }
+
+    .hero .technical-skills .language-card {
+        padding: 16px
+    }
+}
