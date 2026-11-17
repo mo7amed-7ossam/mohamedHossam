@@ -925,7 +925,7 @@
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 760px) {
     .hero .technical-skills .tool-stack-grid {
         grid-template-columns: 1fr;
         gap: 14px
