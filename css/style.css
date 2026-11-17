@@ -3387,9 +3387,9 @@
 
 .projects .project-feature-footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
     gap: 14px;
     margin-top: auto;
 }
