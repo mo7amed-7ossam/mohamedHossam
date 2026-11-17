@@ -3999,7 +3999,7 @@
 }
 
 #resume.resume .courses .container .card .content::before {
-    border-radius: 19px 19px 0 0;
+    display: none;
 }
 
 #resume.resume .courses .container .card .content::after {
