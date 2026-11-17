@@ -4196,3 +4196,192 @@
         font-size: 15px;
     }
 }
+
+/* Contact — compact ways to reach me, with map and message form as one workspace. */
+#contact.contact .containr {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+#contact.contact .containr .card {
+    min-width: 0;
+    min-height: 112px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    border: 1px solid #9bd47c2e;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #20251f 0%, #171917 76%);
+    transition: border-color .25s ease, transform .25s ease;
+}
+
+#contact.contact .containr .card:hover {
+    transform: translateY(-3px);
+    border-color: #9bd47c80;
+}
+
+#contact.contact .containr .card .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#contact.contact .containr .card .title i {
+    color: #9bd47c;
+    font-size: 19px;
+}
+
+#contact.contact .containr .card .title span {
+    display: inline !important;
+    font-size: 13px;
+    letter-spacing: .04em;
+    opacity: .68;
+}
+
+#contact.contact .containr .card .data {
+    max-width: 100%;
+    font-size: clamp(13px, 1vw, 15px);
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+}
+
+#contact.contact .containr .card .data a {
+    color: inherit;
+}
+
+#contact.contact .contact-workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: stretch;
+    gap: 18px;
+}
+
+#contact.contact .contact-map-panel,
+#contact.contact .contact-form-panel {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #ffffff1c;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #1b1e1b 0%, #131513 100%);
+}
+
+#contact.contact .contact-map-panel {
+    min-height: 410px;
+}
+
+#contact.contact iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 410px;
+    margin: 0;
+    filter: grayscale(1) invert(.86) hue-rotate(180deg) brightness(.82) contrast(.92);
+}
+
+#contact.contact .contact-form-panel {
+    padding: clamp(22px, 3vw, 34px);
+}
+
+#contact.contact .contact-form-panel .large-title {
+    margin: 0 0 24px;
+    font-size: clamp(22px, 2vw, 29px);
+    line-height: 1.25;
+}
+
+#contact.contact form {
+    gap: 14px;
+}
+
+#contact.contact form input {
+    width: 100%;
+    min-width: 0;
+    min-height: 54px;
+    padding: 16px 18px;
+    border: 1px solid #ffffff20;
+    border-radius: 12px;
+    background: #ffffff08;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+}
+
+#contact.contact form textarea {
+    min-height: 150px;
+    padding: 16px 18px;
+    border: 1px solid #ffffff20;
+    border-radius: 12px;
+    background: #ffffff08;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+}
+
+#contact.contact form input:focus,
+#contact.contact form textarea:focus {
+    border-color: #9bd47c95;
+    outline: 2px solid #9bd47c20;
+}
+
+#contact.contact form button {
+    min-height: 50px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 999px;
+    background: #9bd47c;
+    color: #121610;
+    font-weight: 700;
+}
+
+#contact.contact .powered {
+    margin-top: 28px;
+}
+
+.light #contact.contact .containr .card {
+    border-color: #4b994338;
+    background: linear-gradient(145deg, #fff 0%, #f4f8f1 100%);
+}
+
+.light #contact.contact .contact-map-panel,
+.light #contact.contact .contact-form-panel {
+    border-color: #4b994326;
+    background: linear-gradient(145deg, #fff 0%, #f7f9f5 100%);
+}
+
+.light #contact.contact form input,
+.light #contact.contact form textarea {
+    border-color: #24351d24;
+    background: #fff;
+    color: #222;
+}
+
+@media (max-width: 992px) {
+    #contact.contact .contact-workspace {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #contact.contact .contact-map-panel,
+    #contact.contact iframe {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 760px) {
+    #contact.contact .containr {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    #contact.contact .containr .card {
+        min-height: 92px;
+    }
+
+    #contact.contact .contact-form-panel {
+        padding: 20px 16px;
+    }
+}
