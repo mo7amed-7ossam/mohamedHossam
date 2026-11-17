@@ -2891,6 +2891,16 @@
     flex-direction: column;
 }
 
+.projects .project-grid .project-info .project-category {
+    margin-bottom: 8px;
+    color: #a2d987;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
 .projects .project-grid .project-info .name {
     color: #f1f3f1;
     font-size: 16px;
@@ -3123,4 +3133,173 @@
 
 .light .projects .project-prototype-note {
     color: #56655a;
+}
+
+
+/* All projects follow the Sindbad card presentation */
+.projects .container .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.projects .project-grid .card {
+    min-height: 620px;
+    padding: 0;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #202322 0%, #171918 80%);
+}
+
+.projects .project-grid .img-con {
+    aspect-ratio: 16 / 10;
+    padding: 20px;
+    border: 0;
+    border-bottom: 1px solid #ffffff16;
+    border-radius: 0;
+    background: radial-gradient(ellipse at 50% 40%, #303832 0%, #1c201e 72%);
+}
+
+.projects .project-grid .img-con img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+}
+
+.projects .project-grid .project-info-con {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 0;
+    padding: 26px;
+}
+
+.projects .project-grid .project-info-con .project-info {
+    display: flex;
+    width: auto;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+}
+
+.projects .project-grid .project-info .name {
+    color: #f1f3f1;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.projects .project-grid .project-info .description {
+    min-height: 66px;
+    margin: 9px 0 15px;
+    color: #b2b8b3;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.projects .project-grid .project-info .tools {
+    gap: 8px;
+    margin-top: auto;
+}
+
+.projects .project-grid .project-info .tools span {
+    padding: 6px 10px;
+    font-size: 10px;
+}
+
+.projects .project-grid .project-info-con .icon {
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.projects .project-grid .project-info-con .icon a {
+    display: inline-flex;
+    width: fit-content;
+    min-height: 48px;
+    aspect-ratio: auto;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 0 18px;
+    border: 1px solid #8cda82;
+    border-radius: 999px;
+    background: #78cc6d;
+    color: #10200f;
+    font-size: 12px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.projects .project-grid .project-info-con .icon a::after {
+    content: "View project";
+    white-space: nowrap;
+}
+
+.projects .project-grid .project-info-con .icon a i {
+    transform: rotate(45deg);
+}
+
+.projects .project-grid .project-info-con .icon a:hover {
+    transform: translateY(-2px);
+    background: #a2e39a;
+    color: #10200f;
+}
+
+.light .projects .project-grid .card {
+    border-color: #15231c1c;
+    background: linear-gradient(145deg, #ffffff 0%, #f5f8f5 80%);
+}
+
+.light .projects .project-grid .img-con {
+    border-color: #15231c16;
+    background: radial-gradient(ellipse at 50% 40%, #f0f5f0 0%, #e6ece7 72%);
+}
+
+.light .projects .project-grid .project-info .name {
+    color: #202923;
+}
+
+.light .projects .project-grid .project-info .description,
+.light .projects .project-grid .project-info .tools span {
+    color: #5d6961;
+}
+
+.light .projects .project-grid .project-info .tools span {
+    border-color: #15231c1c;
+}
+
+.projects .sindbad-project-card .img-con {
+    background: radial-gradient(ellipse at 50% 48%, #0c5963 0%, #0a424a 46%, #08343b 100%);
+}
+
+.projects .sindbad-project-card .img-con img {
+    width: min(76%, 280px);
+    height: auto;
+    max-height: 120px;
+}
+
+@media (max-width: 760px) {
+    .projects .container .project-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .projects .project-grid .card {
+        min-height: 0;
+        border-radius: 20px;
+    }
+
+    .projects .project-grid .img-con {
+        padding: 18px;
+    }
+
+    .projects .project-grid .project-info-con {
+        padding: 22px;
+    }
+
+    .projects .project-grid .project-info .description {
+        min-height: 0;
+    }
 }
