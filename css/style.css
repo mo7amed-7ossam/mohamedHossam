@@ -718,6 +718,39 @@
     background-color: #fafafa
 }
 
+.hero .technical-skills .tool-stack-container .card {
+    aspect-ratio: 1 / .9;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 20px 14px
+}
+
+.hero .technical-skills .tool-stack-container .tool-icon {
+    width: 72px;
+    aspect-ratio: 1 / 1;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: #ffffff0a
+}
+
+.hero .technical-skills .tool-stack-container .tool-icon img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 0
+}
+
+.hero .technical-skills .tool-stack-container .claude-icon {
+    color: #d97757;
+    font-size: 30px
+}
+
+.light .hero .technical-skills .tool-stack-container .tool-icon {
+    background: #00000008
+}
+
+
 .hero .technical-skills .skill-v2-container .card {
     width: calc((100% - 90px)/ 4);
     aspect-ratio: 1/1;
