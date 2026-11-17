@@ -2829,7 +2829,7 @@
 .projects .project-grid .img-con img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     transition: transform .28s ease;
 }
@@ -3060,7 +3060,7 @@
     width: 100%;
     height: 100%;
     min-height: 360px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center top;
     transition: transform .45s ease;
 }
